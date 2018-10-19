@@ -1,0 +1,440 @@
+﻿<!DOCTYPE html>
+<html class="desktop" dir="ltr" lang="zh">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>问津项目说明文档</title>
+    <link rel="stylesheet" type="text/css" href="api_files/css.css">
+    <script type="text/javascript" charset="utf-8" src="api_files/js.php"></script>
+</head>
+<body>
+<div class="dokuwiki export">
+    <!-- TOC START -->
+    <div id="dw__toc">
+        <h3 style="cursor: pointer;" class="toggle open"><strong><span>−</span></strong>目录</h3>
+        <div style="">
+            <ul style="" aria-expanded="true" class="toc">
+                <li class="level1">
+                    <div class="li"><a href="#问津项目说明文档">问津项目说明文档</a></div>
+                    <ul class="toc">
+                        <li class="level2">
+                            <div class="li"><a href="#数据格式约定">数据格式约定</a></div>
+                        </li>
+                        <li class="level2">
+                            <div class="li"><a href="#公共参数">公共参数</a></div>
+                        </li>
+                        <li class="level2">
+                            <div class="li"><a href="#特殊接口说明">特殊接口说明</a></div>
+                            <ul class="toc"><li class="level3"><div class="li"><a href="#登录">登录</a></div></li></ul>
+                            <ul class="toc"><li class="level3"><div class="li"><a href="#绑定">绑定</a></div></li></ul>
+                            <ul class="toc"><li class="level3"><div class="li"><a href="#APP配置">APP配置</a></div></li></ul>
+                            <ul class="toc"><li class="level3"><div class="li"><a href="#充值">充值</a></div></li></ul>
+                            <ul class="toc"><li class="level3"><div class="li"><a href="#充值验证">充值验证</a></div></li></ul>
+                            <ul class="toc"><li class="level3"><div class="li"><a href="#记录">记录</a></div></li></ul>
+                        </li>
+
+                        <li class="level2">
+                            <div class="li"><a href="#返回码定义说明">返回码定义说明(code)</a></div>
+                            <ul class="toc">
+                                <li class="level3"><div class="li"><a href="#基础返回码">基础返回码</a></div></li>
+                                <li class="level3"><div class="li"><a href="#网关模块返回码">网关模块返回码</a></div></li>
+                                <li class="level3"><div class="li"><a href="#用户模块返回码">用户模块返回码</a></div></li>
+                                <li class="level3"><div class="li"><a href="#问答模块返回码">问答模块返回码</a></div></li>
+                                <li class="level3"><div class="li"><a href="#动态模块返回码">动态模块返回码</a></div></li>
+                                <li class="level3"><div class="li"><a href="#直播模块返回码">直播模块返回码</a></div></li>
+                                <li class="level3"><div class="li"><a href="#股票模块返回码">股票模块返回码</a></div></li>
+                                <li class="level3"><div class="li"><a href="#评论组件返回码">评论组件返回码</a></div></li>
+                                <li class="level3"><div class="li"><a href="#打赏组件返回码">打赏组件返回码</a></div></li>
+                                <li class="level3"><div class="li"><a href="#礼物组件返回码">礼物组件返回码</a></div></li>
+                                <li class="level3"><div class="li"><a href="#收藏组件返回码">收藏组件返回码</a></div></li>
+                                <li class="level3"><div class="li"><a href="#储存模块返回码">储存模块返回码</a></div></li>
+                                <li class="level3"><div class="li"><a href="#支付模块返回码">支付模块返回码</a></div></li>
+                            </ul>
+                        </li>
+                        <li class="level2">
+                            <div class="li"><a href="#消息码定义说明">消息码定义说明(imCode)</a></div>
+                            <ul class="toc">
+                                <li class="level3"><div class="li"><a href="#用户模块消息码">用户模块消息码</a></div></li>
+                                <li class="level3"><div class="li"><a href="#用户模块消息码">问答模块消息码</a></div></li>
+                                <li class="level3"><div class="li"><a href="#打赏组件消息码">打赏组件消息码</a></div></li>
+                                <li class="level3"><div class="li"><a href="#礼物组件消息码">礼物组件消息码</a></div></li>
+                                <li class="level3"><div class="li"><a href="#评论组件消息码">评论组件消息码</a></div></li>
+                                <li class="level3"><div class="li"><a href="#直播模块消息码">直播模块消息码</a></div></li>
+                                <li class="level3"><div class="li"><a href="#股票模块消息码">股票模块消息码</a></div></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- TOC END -->
+    <h1 class="sectionedit1" id="问津项目说明文档">问津项目说明文档</h1>
+    <div class="level1"><p>该接口说明文档符号代表：[]表示设定值，{}表示变量,()表示说明</p></div>
+    <h2 class="sectionedit2" id="数据格式约定">数据格式约定</h2>
+    <div class="level2">
+        <p>返回数据为json格式，code为0表示数据正常，code为其他表示数据出错，message为错误提示语(默认为null),data为返回的数据(无可能为null,也可能为空对象,数据类型为泛型)</p>
+        <pre class="code">{"code": 0,"message": null, "data": null}</pre>
+    </div>
+
+    <h3 class="sectionedit3" id="特殊数据格式说明">特殊数据格式说明</h3>
+    <div class="level3">
+        <pre class="code">观点内容json字符串结构：{"content":"赢钱赢钱赢钱赢钱赢钱。$SH603059$ #id# @account@","shares":{"SH603059":"中国石油"},"user":{"account":"nickname"},"topic":{"id","牛市来啦"}}
+观点扩展信息：[{"url":"dynamic/2018/05/26/1527306368563Yeqz.jpg"},{"url":"dynamic/2018/05/26/1527306369423RP3q.jpg"}]
+</pre>
+    </div>
+
+    <h2 class="sectionedit2" id="公共参数">公共参数</h2>
+    <div class="level2">
+        <p>关于项目公共参数表示每个接口都该设定传输</p>
+        <pre class="code">
+Authorization:[Basic {key}]      //登录,刷新token接口都需在头部header中定义该权限字段，其中key由后端提供
+Authorization:[bearer {token}]   //除登录,刷新token外其他接口都需在头部header中定义该权限字段，其中token由登录或刷新token接口返回提供(游客模式可不定义该字段)
+accept-language:[langCode]       //langCode由前端获取用户语言提供定义[zh_CN],[en_US],[zh_TW],后端依此返回相应语言提示</pre>
+    </div>
+    <!-----------------------特殊接口说明开始--------------------------->
+    <h2 class="sectionedit2" id="特殊接口说明">特殊接口说明</h2>
+    <div class="level2"></div>
+
+    <h3 class="sectionedit3" id="登录">登录</h3>
+    <div class="level3">
+        <p>所有登录对外接口形式如下，loginCode表示变量，由后端开发定义{mobile手机密码登录，weixin，facebook}</p>
+        <pre class="code">/user/login/{loginCode}</pre>
+    </div>
+    <h4 class="sectionedit4" id="登录请求参数">请求参数</h4>
+    <div class="level4">
+        <p>以下提供第三方登录参数，其为get请求，所有第三方登录参数返回一致，建议前端第三方登录可统一调用接口入口，其他登录方式见接口文档</p>
+        <ul><li class="level1"><div class="li">code 第三方授权码</div></li></ul>
+    </div>
+    <h4 class="sectionedit4" id="登录返回参数">返回参数</h4>
+    <div class="level4"><p>返回参数与其他登录方式一致，详见手机登录接口文档</p></div>
+
+    <h3 class="sectionedit3" id="绑定">绑定</h3>
+    <div class="level3">
+        <p>所有绑定,解绑对外接口形式如下，loginCode与登录一致，若为get请求则为绑定，delete请求则为解绑,另/connect为用户相关绑定状态</p>
+        <pre class="code">/connect/{loginCode}</pre>
+    </div>
+    <h4 class="sectionedit4" id="绑定请求参数">请求参数</h4>
+    <div class="level4">
+        <p>以下提供第三方绑定参数，其为get请求，其他绑定方式见接口文档</p>
+        <ul><li class="level1"><div class="li">code 第三方授权码</div></li></ul>
+    </div>
+    <h4 class="sectionedit4" id="绑定返回参数">返回参数</h4>
+    <div class="level4"><p>返回参数与其他绑定方式一致，详见手机绑定接口文档，以下为用户绑定状态返回参数，其中键值与loginCode一致</p>
+        <pre class="code">{
+    "code": 0,
+    "data": {
+        "weixin": true,
+        "facebook": false,
+        "mobile": "17688969470"  //手机号
+         "areaCode":"86"  //区号
+        "password":true  //false表示为设置过密码，true设置过密码
+    }
+}</pre></div>
+
+    <h3 class="sectionedit3" id="APP配置">APP配置</h3>
+    <h4 class="sectionedit4" id="APP配置返回参数">返回参数</h4>
+    <div class="level4"><p>因该接口后端为动态返回参数，故未定义相关实体，导致接口文档无参数说明</p>
+        <pre class="code">{
+  "code": 0,
+  "data": {
+    "forceType": 2, //0无需更新1强制2先下载在提示3先提示再下载
+    "review_version": "1.0", //苹果当前审核版本号
+    "image_server": "http://p.triplegain.chidaotv.com/",  //图片服务器
+    "barrage_price": "1",
+    "server_ip": "http://192.168.50.29",   //接口服务器地址
+    "h5_server": "http://192.168.50.29",   //H5服务器地址
+    "updateMsg": "升级",             //升级提示
+    "appUrl": "itms-apps://itunes.apple.com/app/id1066107463",  //apk下载地址(安卓可根据后缀apk判断下载或跳转应用商店)
+    "appCode": "iphone",  //app代号
+    "appSize": "20M"      //app大小
+    "weixinClientId":"wxfb8b144408f50989"   //第三方登录配置，{loginCode}ClientId键值配置规则
+  }
+}</pre></div>
+
+    <h3 class="sectionedit3" id="充值">充值</h3>
+    <h4 class="sectionedit4" id="充值请求参数">请求参数</h4>
+    <div class="level4"><p>请求参数见接口文档</p></div>
+    <h4 class="sectionedit4" id="充值返回参数">返回参数</h4>
+    <div class="level4"><p>因该接口后端对接不同支付平台导致各返回值不一致，故未定义相关实体，导致接口文档无参数说明</p>
+        <pre class="code">
+谷歌，苹果返回值
+{
+  "code": 0,
+  "data": {
+    "product_id": "dsafd.1",  //产品ID(该值在支付平台定义，由后端定义)
+    "order_sn": "30517531529465904947"  //订单号(验证接口苹果回传后端)
+  }
+}
+微信返回值</pre></div>
+
+    <h3 class="sectionedit3" id="充值验证">充值验证</h3>
+    <h4 class="sectionedit4" id="充值验证请求参数">请求参数</h4>
+    <div class="level4">
+        <p>所有支付验证对外接口格式如下，{paymentCode}表示支付代号变量，由后端定义提供[applePay][googlePay][wxPay]</p>
+        <pre class="code">/pay/verify/{paymentCode}</pre>
+        <p>因该接口后端对接不同支付平台导致各请求参数不一致，故未定义相关实体，导致接口文档无参数说明</p><ul>
+        <li class="level1"><div class="li">谷歌验证参数</div></li>
+        <ul><li class="level2"><div class="li">signature      //加密后的字符串(谷歌支付成功返回)</div></li>
+        <li class="level2"><div class="li">signatureData  //用于加密的参数(谷歌支付成功返回)</div></li></ul>
+        <li class="level1"><div class="li">苹果验证参数</div></li>
+        <ul><li class="level2"><div class="li">orderSn      //充值订单号(充值订单返回)</div></li>
+        <li class="level2"><div class="li">appleReceipt  //支付凭证(苹果支付成功返回)</div></li></ul>
+    </ul></div>
+    <h4 class="sectionedit4" id="充值验证返回参数">返回参数</h4>
+    <div class="level4"><p>对于苹果，谷歌等调用验证成功直接返回code为0，若返回不是0则前端应在该接口添加重试逻辑，以防支付成功后端未加虚拟币</p></div>
+
+    <h3 class="sectionedit3" id="记录">记录</h3>
+    <div class="level4"><p>在一些接口后台放置一些节点记录用户行为需传参数说明</p>
+        <pre class="code">
+获得APP配置：/server/getAppConfig  登录：/user/login/{loginCode}这两接口需格外携带参数
+{
+    "appCode"; //app代号(android,iphone)
+    "loginCode"; //登录代号(与{loginCode}一致)
+    "deviceModel"; //设备型号
+    "imei";  //设备唯一标识码
+    "appVersion"; //app版本
+}</pre></div>
+    <!-----------------------特殊接口说明结束--------------------------->
+
+    <!-----------------------返回码定义说明开始--------------------------->
+    <h2 class="sectionedit2" id="返回码定义说明">返回码定义说明(code)</h2>
+    <div class="level2"></div>
+
+    <h3 class="sectionedit3" id="基础返回码">基础返回码</h3>
+    <div class="level3">
+        <p>项目中各个模块都可能使用到的返回码定义，除特殊返回码外其正常取值范围定义(900-999)</p>
+        <pre class="code">0：   成功(表示逻辑跑通,只有返回该CODE，data才可能会有数据)
+-1：  异常(表示后端非正常捕获异常，由框架捕获返回)
+1：   登录失效(返回该错误前端应做刷新token处理)
+3：   刷新token异常(返回该错误前端应执行登录操作)
+900： 功能关闭(当关闭登录方式，支付方式，评论等功能时统一返回该CODE)
+901： 配置有误(指当前功能调用配置值时有误返回，通常后端配置问题)
+902： 数据有误(通常前端传递参数有误,后台校验数据不符合返回)
+903： 经纬度有误(当各模块需要经纬度时后台对经纬度的校验返回)</pre>
+    </div>
+
+    <h3 class="sectionedit3" id="网关模块返回码">网关模块返回码</h3>
+    <div class="level3">
+        <p>正常取值范围定义(1000-1199)</p>
+        <pre class="code">1002：手机号格式有误(后台校验手机号码不符合格式)
+1003：验证码不存在(通常手机未发送过该类型的的验证码返回)
+1004：验证码为空
+1005：验证码异常(可能发送新验证码却还使用前一个验证码导致)
+1006：验证码类型有误(通常type参数有问题)
+1007：验证码发送过快(通常同一类型短信发送间隔为超过设定时间)
+1008：验证码发送超限(通常该用户手机号该天发送验证码数量超过设定值)
+1009：验证码失效(通常该验证码超过了设定的过期时间)
+1010：验证码发送失败(通常后台与短信发送方异常)
+1020：账号不存在(通常登录返回)
+1021：手机号已经注册
+1022：密码格式有误
+1023：账号被禁用
+1024：密码错误(使用密码修改密码时校验返回)
+1025：账号密码有误(账号密码登录返回)
+1026：绑定账号已存在(绑定的第三方或手机号已经存在系统中)
+1027：绑定账号失败
+1028：手机号已存在
+1029：解绑时只包含该解绑账号</pre>
+    </div>
+
+    <h3 class="sectionedit3" id="用户模块返回码">用户模块返回码</h3>
+    <div class="level3">
+        <p>正常取值范围定义(2000-2499)</p>
+        <pre class="code">2000：用户不存在
+2001：出生日期格式有误
+2100：已关注
+2101：不能关注自己
+2200：消费方式不存在(通常后端配置问题)
+2201：消费类型错误(后端调用与配置不一致)
+2202：余额不足
+2203：冻结资金不存在(通常后端逻辑有问题)
+2204：收入类型不存在(通常后端配置问题)
+2205：收入方式不存在
+2300：已拉黑(通常拉黑返回)
+2301：未拉黑(通常取消拉黑返回)
+2302：不能拉黑自己
+2303：被对方拉黑
+2310：反馈内容不能为空</pre>
+    </div>
+
+    <h3 class="sectionedit3" id="问答模块返回码">问答模块返回码</h3>
+    <div class="level3">
+        <p>正常取值范围定义(2500-2699)</p>
+        <pre class="code">2500：问答费用不存在
+2501：问答内容不能为空
+2502：问答内容要为JSON字符串
+2503：问答不存在
+2504：该提问不能回答(提问过期或已取消)
+2505：提问者和回答者是同一个人</pre>
+    </div>
+
+    <h3 class="sectionedit3" id="直播模块返回码">直播模块返回码</h3>
+    <div class="level3">
+        <p>正常取值范围定义(3000-3199)</p>
+        <pre class="code">3200：直播需要实名认证
+3201：直播需要购买直播权限
+3202：用户被禁止开播
+3203：等级低于可开播等级
+3204：该直播类型需要购买才能直播
+3205：直播类型不存在(通常前端参数有误或后端为配置该直播类型)
+3206：直播供应商不存在(后端配置的直播推拉流提供商有误)
+3207：直播不存在</pre>
+    </div>
+
+    <h3 class="sectionedit3" id="动态模块返回码">动态模块返回码</h3>
+    <div class="level3">
+        <p>正常取值范围定义(3200-3499)</p>
+        <pre class="code">3000：动态类型异常(通常typeCode异常)
+3001：动态不存在</pre>
+    </div>
+
+    <h3 class="sectionedit3" id="评论组件返回码">评论组件返回码</h3>
+    <div class="level3">
+        <p>正常取值范围定义(4100-4149)</p>
+        <pre class="code">4100：评论模块不存在(通常前端模块名错误或后端未引入)
+4101：评论不存在
+4102：已经踩过了
+4103：已经点过赞了
+4104：已经踩过该评论
+4105：已经点赞过该评论
+4106：不支持点赞
+4107：不支持踩
+4108：不支持评论点赞
+4109：不支持踩评论</pre>
+    </div>
+
+    <h3 class="sectionedit3" id="打赏组件返回码">打赏组件返回码</h3>
+    <div class="level3">
+        <p>正常取值范围定义(4150-4199)</p>
+        <pre class="code">4150：打赏模块不存在(通常前端参数有误或后端为配置该直播类型)</pre>
+    </div>
+
+    <h3 class="sectionedit3" id="礼物组件返回码">打赏组件返回码</h3>
+    <div class="level3">
+        <p>正常取值范围定义(4200-4249)</p>
+        <pre class="code">4200：礼物不存在
+4201：发送礼物模块不存在(通常前端参数有误或后端为配置该直播类型)</pre>
+    </div>
+
+    <h3 class="sectionedit3" id="收藏组件返回码">收藏组件返回码</h3>
+    <div class="level3">
+        <p>正常取值范围定义(4200-4249)</p>
+        <pre class="code">4250：收藏模块不存在(通常前端模块名错误或后端未引入)</pre>
+    </div>
+
+    <h3 class="sectionedit3" id="股票模块返回码">股票模块返回码</h3>
+    <div class="level3">
+        <p>正常取值范围定义(3500-3699)</p>
+        <pre class="code"></pre>
+    </div>
+
+    <h3 class="sectionedit3" id="储存模块返回码">储存模块返回码</h3>
+    <div class="level3">
+        <p>正常取值范围定义(5000-5099)</p>
+        <pre class="code">5000：上传类型不支持(一般typeCode有误)
+5001：上传失败(通常后端与提供商问题或文件有问题)
+5002：上传工具不存在(一般后端配置问题)
+5003：文件类型不支持(通常文件类型后端校验不通过)</pre>
+    </div>
+
+    <h3 class="sectionedit3" id="支付模块返回码">支付模块返回码</h3>
+    <div class="level3">
+        <p>正常取值范围定义(5100-5199)</p>
+        <pre class="code">5100：充值不存在(通常前端充值ID有误或后端关闭了该充值)
+5101：支付方式不存在
+5102：支付提供商有误(通常后台配置问题)</pre>
+    </div>
+    <!-----------------------返回码定义说明结束--------------------------->
+
+    <!-----------------------消息码定义说明开始--------------------------->
+    <h2 class="sectionedit2" id="消息码定义说明">消息码定义说明(imCode)</h2>
+    <p>imCode为定义为三位数字，取值范围为(100-899)，以下说明(O针对单个用户，L针对全部用户，R针对房间用户，S列表用户，P推送消息，I即时消息)</p>
+    <div class="level2"><pre class="code">
+消息的公共字段(如消息格式未做特别说明，则按基础格式)
+基础消息格式：{
+      "account": "",
+      "avatar": "string",
+      "imCode": 200,
+      "msg": "string",
+      "msgId":"",
+      "nickname": "",
+      "sendTime": 0
+      "receiveAccount":null //接收者account(可能为null,只有针对单个用户消息会有值,用于过滤消息)
+    }
+推送基础消息格式：{
+      //省略消息基础消息字段，继承于基础消息
+      "shield":  false   //用户是否屏蔽提醒
+      "sourceCode":"String" //消息来源代号(如发布观点[dynamic])
+      "objectId": 0, //消息对象ID(如是发布观点{dynamicId})
+    }
+    </pre></div>
+
+    <h3 class="sectionedit3" id="基础消息码">基础消息码</h3>
+    <div class="level3">
+        <pre class="code">
+100：(OP) 系统提醒用户消息</pre>
+    </div>
+
+    <h3 class="sectionedit3" id="用户模块消息码">用户模块消息码</h3>
+    <div class="level3">
+        <p>正常取值范围定义(200-219)</p>
+        <pre class="code">
+200：(OP)@用户提醒消息
+201：(OS)通知粉丝消息</pre>
+    </div>
+
+    <h3 class="sectionedit3" id="问答模块消息码">问答模块消息码</h3>
+    <div class="level3">
+        <p>正常取值范围定义(220-239)</p>
+<pre class="code">
+220：(OP)用户提问、回答提醒(发布或回答提问触发)</pre>
+    </div>
+
+    <h3 class="sectionedit3" id="打赏组件消息码">打赏组件消息码</h3>
+    <div class="level3">
+        <p>正常取值范围定义(240-249)</p>
+        <pre class="code">240：(OP)打赏提醒接收方用户
+推送消息格式：{
+    //省略推送基础消息字段
+    "rewardAmount":188 //打赏金额
+}</pre>
+    </div>
+
+    <h3 class="sectionedit3" id="礼物组件消息码">礼物组件消息码</h3>
+    <div class="level3">
+        <p>正常取值范围定义(250-259)</p>
+        <pre class="code">250：(RI)发送礼物</pre>
+    </div>
+
+    <h3 class="sectionedit3" id="评论组件消息码">评论组件消息码</h3>
+    <div class="level3">
+        <p>正常取值范围定义(260-269)</p>
+        <pre class="code">260：(OP)评论
+261：(OP)点赞</pre>
+    </div>
+
+    <h3 class="sectionedit3" id="直播模块消息码">直播模块消息码</h3>
+    <div class="level3">
+        <p>正常取值范围定义(320-349)</p>
+        <pre class="code">320：(RI)结束直播
+321：(RI)进入房间
+322：(RI)发送直播间消息
+323：(RI)主播退到后台
+324：(RI)主播回到APP
+325：(RI)设置主播管理员
+326：(RI)取消主播管理员
+327：(RI)直播间禁言
+328：(RI)取消禁言
+329：(RI)退出房间</pre>
+    </div>
+
+    <h3 class="sectionedit3" id="股票模块消息码">股票模块消息码</h3>
+    <div class="level3">
+        <p>正常取值范围定义(450-479)</p>
+        <pre class="code">450：(OL)今日热点</pre>
+    </div>
+    <!-----------------------消息码定义说明结束--------------------------->
+</div>
+</body>
+</html>

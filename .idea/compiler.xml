@@ -6,7 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="xujm-parent" />
+        <module name="xujm-blog-admin" />
+        <module name="xujm-blog-common" />
+        <module name="xujm-blog-web" />
+        <module name="xujm-common-admin" />
+        <module name="xujm-common-core" />
+        <module name="xujm-common-web" />
+        <module name="xujm-config" />
+        <module name="xujm-core" />
+        <module name="xujm-gateway-admin" />
+        <module name="xujm-gateway-common" />
+        <module name="xujm-gateway-web" />
+        <module name="xujm-user-admin" />
+        <module name="xujm-user-common" />
+        <module name="xujm-user-web" />
       </profile>
     </annotationProcessing>
   </component>
