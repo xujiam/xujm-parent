@@ -19,8 +19,10 @@
         <module>xujm-config</module>
         <module>xujm-common</module>
         <module>xujm-gateway</module>
-        <module>xujm-blog</module>
         <module>xujm-user</module>
+        <module>xujm-lib</module>
+        <module>xujm-cms</module>
+        <module>xujm-oss</module>
     </modules>
 
     <properties>

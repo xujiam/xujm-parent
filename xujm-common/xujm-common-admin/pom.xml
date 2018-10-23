@@ -11,5 +11,18 @@
 
     <artifactId>xujm-common-admin</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>top.xujm</groupId>
+            <artifactId>xujm-config</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>top.xujm</groupId>
+            <artifactId>xujm-common-core</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
 </project>

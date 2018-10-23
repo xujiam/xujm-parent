@@ -7,6 +7,7 @@ E:\xujm\xujm-parent\xujm-config\src\main\java\top\xujm\modules\config\model\Plat
 E:\xujm\xujm-parent\xujm-config\src\main\java\top\xujm\config\resource\ResourceConfig.java
 E:\xujm\xujm-parent\xujm-config\src\main\java\top\xujm\modules\config\common\ConfigRedisCacheKeyEnum.java
 E:\xujm\xujm-parent\xujm-config\src\main\java\top\xujm\modules\config\model\AppVersion.java
+E:\xujm\xujm-parent\xujm-config\src\main\java\top\xujm\schedule\ScheduledTask.java
 E:\xujm\xujm-parent\xujm-config\src\main\java\top\xujm\modules\config\repository\AppVersionRepository.java
 E:\xujm\xujm-parent\xujm-config\src\main\java\top\xujm\modules\config\model\PlatformConfig.java
 E:\xujm\xujm-parent\xujm-config\src\main\java\top\xujm\modules\config\repository\PlatformScheduledRepository.java
@@ -16,4 +17,7 @@ E:\xujm\xujm-parent\xujm-config\src\main\java\top\xujm\modules\config\repository
 E:\xujm\xujm-parent\xujm-config\src\main\java\top\xujm\modules\config\service\impl\ServerServiceImpl.java
 E:\xujm\xujm-parent\xujm-config\src\main\java\top\xujm\modules\config\controller\ServerController.java
 E:\xujm\xujm-parent\xujm-config\src\main\java\top\xujm\modules\config\common\ConfigLocalEnum.java
+E:\xujm\xujm-parent\xujm-config\src\main\java\top\xujm\schedule\ScheduledService.java
 E:\xujm\xujm-parent\xujm-config\src\main\java\top\xujm\modules\config\biz\PlatformConfigBiz.java
+E:\xujm\xujm-parent\xujm-config\src\main\java\top\xujm\schedule\ScheduledApplicationRunner.java
+E:\xujm\xujm-parent\xujm-config\src\main\java\top\xujm\schedule\ScheduledInfo.java

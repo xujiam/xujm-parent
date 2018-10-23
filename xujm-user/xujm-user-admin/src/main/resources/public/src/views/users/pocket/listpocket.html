@@ -1,0 +1,67 @@
+
+
+<title>后台充值</title>
+
+<div class="layui-card layadmin-header">
+    <div class="layui-breadcrumb" lay-filter="breadcrumb">
+        <a lay-href="">主页</a>
+        <a><cite>钱包管理</cite></a>
+        <a><cite>后台充值</cite></a>
+    </div>
+</div>
+
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-form layui-card-header layuiadmin-card-header-auto" lay-filter="users-pocket-listpocket">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">账号</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="account" placeholder="请输入" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">昵称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="nickname" placeholder="请输入" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <button class="layui-btn layuiadmin-btn-useradmin" lay-submit lay-filter="LAY-pocket-listpocket-search">
+                        <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="layui-card-body">
+            <table id="LAY-users-pocket-list" lay-filter="LAY-users-pocket-list"></table>
+            <script type="text/html" id="table-pocket-list">
+                <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="recharge"><i class="layui-icon layui-icon-add-1"></i>充值</a>
+            </script>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    layui.use('userpocket', layui.factory('userpocket')).use(['admin', 'userpocket', 'table'], function(){
+        var $ = layui.$
+            ,admin = layui.admin
+            ,view = layui.view
+            ,table = layui.table
+            ,form = layui.form;
+        form.render(null, 'users-pocket-listpocket');
+        //监听搜索
+        form.on('submit(LAY-pocket-listpocket-search)', function(data){
+            var field = data.field;
+            //执行重载
+            table.reload('LAY-users-pocket-list', {
+                where: field
+            });
+        });
+        /*$('.layui-btn.layuiadmin-btn-useradmin').on('click', function(){
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });*/
+    });
+</script>

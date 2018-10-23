@@ -1,0 +1,86 @@
+
+
+<div class="layui-form" lay-filter="layuiadmin-form-useradmin" style="padding: 20px 0 0 0;">
+  <script type="text/html" template>
+    <input type="hidden" name="userId" value="{{ d.params.userId || 0}}" autocomplete="off" class="layui-input">
+  </script>
+  <div class="layui-form-item">
+    <label class="layui-form-label">账号</label>
+    <div class="layui-input-inline">
+      <script type="text/html" template>
+        <input type="text" name="account" value="{{ d.params.account || '' }}" lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input" disabled>
+      </script>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">昵称</label>
+    <div class="layui-input-inline">
+      <script type="text/html" template>
+        <input type="text" name="nickname" value="{{ d.params.nickname || '' }}" lay-verify="required" placeholder="请输入昵称" autocomplete="off" class="layui-input">
+      </script>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">内部角色</label>
+    <div class="layui-input-inline">
+      <script type="text/html" template>
+        <select name="insideRole" lay-verify="required">
+          <option value="">请选择角色</option>
+          <option value="0" {{ d.params.insideRole === 0 ? 'selected' : '' }}>普通账户</option>
+          <option value="1" {{ d.params.insideRole === 1 ? 'selected' : '' }}>机器人</option>
+          <option value="2" {{ d.params.insideRole === 2 ? 'selected' : '' }}>内部账户</option>
+          <option value="3" {{ d.params.insideRole === 3 ? 'selected' : '' }}>测试账户</option>
+        </select>
+      </script>
+    </div>
+  </div>
+  <div class="layui-form-item" lay-filter="sex">
+    <label class="layui-form-label">选择性别</label>
+    <div class="layui-input-block">
+      <script type="text/html" template>
+        <input type="radio" name="sex" value="1" title="男" {{ d.params.sex === 1 ? 'checked' : '' }}>
+        <input type="radio" name="sex" value="2" title="女" {{ d.params.sex === 2 ? 'checked' : '' }}>
+      </script>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">账户角色</label>
+  <div class="layui-input-inline">
+    <script type="text/html" template>
+      <select name="role" lay-verify="required" lay-filter="role" lay->
+        <option value="">请选择角色</option>
+        <option value="0" {{ d.params.role === 0 ? 'selected' : '' }}>普通</option>
+        <option value="1" {{ d.params.role === 1 ? 'selected' : '' }}>投资顾问</option>
+      </select>
+    </script>
+  </div>
+
+</div>
+
+  <div class="layui-form-item">
+    <label class="layui-form-label"></label>
+    <div class="layui-input-inline">
+      <input type="button" lay-submit lay-filter="LAY-user-front-submit" value="确认" class="layui-btn">
+    </div>
+  </div>
+</div>
+
+<script>
+layui.use(['admin', 'form', 'upload'], function(){
+  var $ = layui.$
+  ,form = layui.form
+  ,upload = layui.upload;
+  
+  //上传头像
+  upload.render({
+    elem: '#layuiadmin-upload-useradmin'
+    ,url: './json/upload/demo.js'
+    ,accept: 'images'
+    ,method: 'get'
+    ,acceptMime: 'image/*'
+    ,done: function(res){
+      $(this.item).prev("div").children("input").val(res.data.src)
+    }
+  });
+})
+</script>

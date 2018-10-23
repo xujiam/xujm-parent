@@ -1,0 +1,69 @@
+<title>消费记录</title>
+
+<div class="layui-card layadmin-header">
+    <div class="layui-breadcrumb" lay-filter="breadcrumb">
+        <a lay-href="">主页</a>
+        <a><cite>运营管理</cite></a>
+        <a><cite>消费记录</cite></a>
+    </div>
+</div>
+
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-form layui-card-header layuiadmin-card-header-auto" lay-filter="users-consume-listconsume">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">用户账号</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="account" placeholder="请输入" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">对方账号</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="toaccount" placeholder="请输入" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">提出时间</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" id="addTime" name="addTime">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <button class="layui-btn layuiadmin-btn-useradmin" lay-submit lay-filter="LAY-consume-listconsume-search">
+                        <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="layui-card-body">
+            <table id="LAY-users-consume-list" lay-filter="LAY-users-consume-list"></table>
+        </div>
+    </div>
+</div>
+
+<script>
+    layui.use('userconsume', layui.factory('userconsume')).use(['admin', 'userconsume', 'table', 'laydate'], function(){
+        var $ = layui.$
+            ,admin = layui.admin
+            ,laydate = layui.laydate
+            ,view = layui.view
+            ,table = layui.table
+            ,form = layui.form;
+        laydate.render({
+            elem: '#addTime'
+            ,type: 'datetime'
+            ,range: true
+        })
+        form.render(null, 'users-consume-listconsume');
+        //监听搜索
+        form.on('submit(LAY-consume-listconsume-search)', function(data){
+            var field = data.field;
+            //执行重载
+            table.reload('LAY-users-consume-list', {
+                where: field
+            });
+        });
+    });
+</script>

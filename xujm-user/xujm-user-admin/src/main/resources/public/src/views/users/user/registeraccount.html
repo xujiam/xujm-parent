@@ -1,0 +1,88 @@
+
+
+<div class="layui-form" lay-filter="layuiadmin-form-account" style="padding: 20px 0 0 0;">
+    <div class="layui-form-item">
+        <label class="layui-form-label">手机区号</label>
+        <div class="layui-input-inline">
+            <script type="text/html" template>
+                <input type="text" name="areaCode" value="86" lay-verify="required" placeholder="请输入手机区号" autocomplete="off" class="layui-input" id="areaCode">
+            </script>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">手机号</label>
+        <div class="layui-input-inline">
+            <script type="text/html" template>
+                <input type="text" name="mobile" lay-verify="phone" placeholder="请输入手机号" autocomplete="off" class="layui-input" id="mobile">
+            </script>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">验证码</label>
+        <div class="layui-input-inline">
+            <script type="text/html" template>
+                <input type="text" name="captcha" lay-verify="required" placeholder="请输入验证码" autocomplete="off" class="layui-input">
+            </script>
+        </div>
+        <div class="layui-input-inline" style="width: auto;">
+            <script type="text/html" template>
+                <input type="button" class="layui-btn layuiadmin-btn-Captcha" value=" 获取验证码" data-type="sendSmsCaptcha" id="sendSms">
+            </script>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">密码</label>
+        <div class="layui-input-inline">
+            <script type="text/html" template>
+                <input type="text" name="password" lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+            </script>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">确认密码</label>
+        <div class="layui-input-inline">
+            <script type="text/html" template>
+                <input type="text" name="toPpassword" lay-verify="required" placeholder="请确认密码" autocomplete="off" class="layui-input">
+            </script>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        <div class="layui-input-inline">
+            <input type="button" lay-submit lay-filter="LAY-account-front-submit" value="确认" class="layui-btn">
+        </div>
+    </div>
+</div>
+
+<script>
+    layui.use(['admin', 'form', 'upload'], function(){
+        var $ = layui.$
+         ,form = layui.form
+        //事件
+        var active = {
+            sendSmsCaptcha: function(){
+                var sendSmsBtn = $("#sendSms");
+                var mobile = $("#mobile").val();
+                var areaCode = $("#areaCode").val();
+                var countdown=60;
+                layer.confirm('确定发送验证码到+'+ areaCode + ' ' + mobile+ '吗？', function(index) {
+                    $.ajax({
+                        type: "POST",
+                        url:"/user/sendSmsCaptcha",
+                        data: {mobile:mobile, areaCode:areaCode},
+                        dataType: "json",
+                        success: function(data){
+                            // 还需一个倒计时
+                        }
+                    });
+                    layer.msg('发送成功');
+                });
+            }
+
+        }
+        $('.layui-btn.layuiadmin-btn-Captcha').on('click', function(){
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+    })
+</script>

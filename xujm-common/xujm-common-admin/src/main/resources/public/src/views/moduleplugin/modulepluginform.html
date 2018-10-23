@@ -1,0 +1,49 @@
+<style>
+    .pocket-form-label{
+        width: 120px;
+    }
+</style>
+
+<div class="layui-form" lay-filter="layuiadmin-form-moduleplugin" style="padding: 20px 30px 0 0;">
+    <script type="text/html" template>
+        <input type="hidden" name="id" value="{{ d.params.id || 0}}" autocomplete="off" class="layui-input">
+    </script>
+    <div class="layui-form-item">
+        <label class="layui-form-label pocket-form-label">模块名称</label>
+        <div class="layui-input-inline">
+            <script type="text/html" template>
+                <input type="text" name="moduleName" value="{{ d.params.moduleName || '' }}" lay-verify="required" placeholder="请输入模块名称" autocomplete="off" class="layui-input">
+            </script>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label pocket-form-label">模块</label>
+        <div class="layui-input-inline">
+            <script type="text/html" template>
+                <input type="text" name="moduleValue" value="{{ d.params.moduleValue || '' }}" lay-verify="required" placeholder="请输入模块" autocomplete="off" class="layui-input">
+            </script>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label pocket-form-label">模块扩展组件</label>
+        <div class="layui-input-inline">
+            <script type="text/html" template>
+                <textarea type="text" name="pluginCode" lay-verify="required" autocomplete="off" class="layui-textarea">{{ d.params.pluginCode || '' }}</textarea>
+
+            </script>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label pocket-form-label"></label>
+        <div class="layui-input-inline">
+            <input type="button" lay-submit lay-filter="LAY-platform-moduleplugin-submit" value="确认" class="layui-btn">
+        </div>
+    </div>
+</div>
+
+<script>
+    layui.use(['admin', 'form'], function(){
+        var $ = layui.$
+            ,form = layui.form;
+    });
+</script>

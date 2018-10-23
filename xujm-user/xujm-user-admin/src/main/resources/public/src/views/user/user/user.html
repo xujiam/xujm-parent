@@ -1,0 +1,102 @@
+
+
+<!--<style>
+    table thead tr {
+        height: 25px;
+        line-height: 25px;
+    }
+    table thead tr .layui-table-cell{
+        height: 25px;
+        line-height: 25px;
+    }
+    table tbody tr {
+        height: 120px;
+        line-height: 120px;
+    }
+    .layui-table-cell {
+        height: 120px;
+        line-height: 120px;
+    }
+</style>-->
+
+
+<table id="LAY-user-user-user" lay-filter="LAY-user-user-user" style=""></table>
+<script type="text/html" id="avatarExtendTpl">
+    <img style="display: inline-block; width: 100%; height: 100%;" src= {{ d.avatarExtend }} >
+</script>
+
+
+<script>
+    layui.use(['admin', 'table', 'laydate'], function(){
+        var $ = layui.$
+            ,admin = layui.admin
+            ,laydate = layui.laydate
+            ,view = layui.view
+            ,table = layui.table
+            ,form = layui.form;
+        laydate.render({
+            elem: '#addTime'
+            ,type: 'datetime'
+            ,range: true
+        });
+        /*sessionStorage.getItem('objectId')*/
+        table.render({
+            elem: '#LAY-user-user-user'
+            , url: '/user/user'
+            , where: {objectId:layui.data('report').objectId}
+            , headers: {
+                Authorization: layui.data('layuiAdmin').access_token
+            }
+            , cols: [[
+                 {field: 'account', title: '账号', align: "center"}
+                , {field: 'nickname', title: '昵称', align: "center"}
+                , {field: 'avatarExtend', title: '头像', align: "center", templet: '#avatarExtendTpl'}
+                , {field: 'sex', title: '性别', width:60, align: "center"}
+                , {field: 'level', title: '等级', width:60, align: "center"}
+                , {field: 'signature', title: '个性签名', width:120, align: "center"}
+                , {field: 'role', title: '账号角色', width:100,align: "center"}
+                , {field: 'mobile', title: '手机', width:120,align: "center"}
+                , {field: 'isBlack', title: '状态', width:60, align: "center"}
+                , {field: 'insideRole', title: '内部角色', align: "center"}
+                , {field: 'addTime', title: '注册时间', align: "center", templet: '<div>{{ layui.laytpl.numToDateString(d.addTime) }}</div>' }
+            ]]
+            , text: '对不起，加载出现异常！'
+            , done: function (res, page, count) {
+                $("[data-field='sex']").children().each(function () {
+                    if ($(this).text() == '1') {
+                        $(this).text("男")
+                    } else if ($(this).text() == '2') {
+                        $(this).text("女")
+                    } else if ($(this).text() == '0') {
+                        $(this).text("未知")
+                    }
+                })
+                $("[data-field='role']").children().each(function () {
+                    if ($(this).text() == '0') {
+                        $(this).text("普通")
+                    } else if ($(this).text() == '1') {
+                        $(this).text("投资顾问")
+                    }
+                })
+                $("[data-field='isBlack']").children().each(function () {
+                    if ($(this).text() == '0') {
+                        $(this).text("正常")
+                    } else if ($(this).text() == '1') {
+                        $(this).text("封号")
+                    }
+                })
+                $("[data-field='insideRole']").children().each(function () {
+                    if ($(this).text() == '0') {
+                        $(this).text("普通账户")
+                    } else if ($(this).text() == '1') {
+                        $(this).text("机器人")
+                    } else if ($(this).text() == '2') {
+                        $(this).text("内部账户")
+                    } else if ($(this).text() == '3') {
+                        $(this).text("测试账户")
+                    }
+                })
+            }
+        });
+    });
+</script>

@@ -1,0 +1,16 @@
+top\xujm\modules\oss\common\FileTypeEnum.class
+top\xujm\modules\oss\common\OssResultEnum.class
+top\xujm\modules\oss\model\OssLog.class
+top\xujm\modules\oss\processor\OssProcessor.class
+top\xujm\modules\oss\common\OssConstants.class
+top\xujm\modules\oss\processor\generator\AliYunOssGenerator.class
+top\xujm\modules\oss\model\Oss.class
+top\xujm\modules\oss\processor\OssGenerator.class
+top\xujm\modules\oss\controller\OssController.class
+top\xujm\modules\oss\service\impl\OssFileServiceImpl.class
+top\xujm\modules\oss\service\impl\OssServiceImpl.class
+top\xujm\modules\oss\repository\OssLogRepository.class
+top\xujm\modules\oss\processor\OssConfig.class
+top\xujm\modules\oss\repository\OssRepository.class
+top\xujm\modules\oss\common\OssRemindException.class
+top\xujm\modules\oss\service\OssService.class

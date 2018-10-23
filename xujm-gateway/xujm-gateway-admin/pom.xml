@@ -11,5 +11,16 @@
 
     <artifactId>xujm-gateway-admin</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>top.xujm</groupId>
+            <artifactId>xujm-gateway-common</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>top.xujm</groupId>
+            <artifactId>xujm-common-admin</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
 </project>

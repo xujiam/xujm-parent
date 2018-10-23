@@ -1,0 +1,45 @@
+
+
+<div class="layui-form" lay-filter="layuiadmin-form-role" style="padding: 20px 30px 0 0;">
+  <script type="text/html" template>
+    <input type="hidden" name="roleId" value="{{ d.params.roleId || 0}}" autocomplete="off" class="layui-input">
+  </script>
+  <div class="layui-form-item">
+    <label class="layui-form-label">角色名称</label>
+    <div class="layui-input-inline">
+      <script type="text/html" template>
+        <input type="text" name="roleName" value="{{ d.params.roleName || '' }}" lay-verify="required" placeholder="请输入角色名称" autocomplete="off" class="layui-input">
+      </script>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">角色代号</label>
+    <div class="layui-input-inline">
+      <script type="text/html" template>
+        <input type="text" name="roleCode" value="{{ d.params.roleCode || '' }}" lay-verify="required" placeholder="请输入角色代号" autocomplete="off" class="layui-input">
+      </script>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">角色描述</label>
+    <div class="layui-input-block">
+      <script type="text/html" template>
+        <textarea type="text" name="roleMark" lay-verify="required" autocomplete="off" class="layui-textarea">{{ d.params.roleMark || '' }}</textarea>
+      </script>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label"></label>
+    <div class="layui-input-inline">
+      <input type="button" lay-submit lay-filter="LAY-user-role-submit" value="确认" class="layui-btn">
+    </div>
+  </div>
+</div>
+
+<script>
+layui.use(['admin', 'form'], function(){
+  var $ = layui.$
+  ,form = layui.form;
+  
+});
+</script>

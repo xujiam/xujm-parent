@@ -1,0 +1,73 @@
+<style>
+    .layui-nav-tree {
+        width: 100%;
+        background-color: rgba(128, 128, 128, 0.1) !important;
+    }
+    .layui-nav-tree .layui-nav-child {
+        text-indent: 2em;
+        background-color: #f8f8f8 !important;
+    }
+    .layui-nav-tree a {
+        color: #333 !important;
+    }
+    .layui-nav-tree a:hover {
+        color: #000 !important;
+        background-color: #eee !important;
+    }
+</style>
+<!--<div class="layui-card layui-form" lay-filter="component-form-element">-->
+    <!--<div class="layui-card-header">复选框</div>-->
+    <!--<div class="layui-card-body layui-row layui-col-space10">-->
+        <!--<div class="layui-col-md12">-->
+            <!--<input type="checkbox" name="" title="写作" lay-skin="primary" checked>-->
+            <!--<input type="checkbox" name="" title="发呆" lay-skin="primary">-->
+            <!--<input type="checkbox" name="" title="禁用" lay-skin="primary" disabled>-->
+            <!--<input type="checkbox" name="" lay-skin="primary">-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<div class="layui-card-body layui-card layui-form" style="padding: 0;" lay-filter="component-form-element">
+    <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="component-nav-active" style="margin-right: 10px;">
+        <li class="layui-nav-item layui-nav-itemed">
+            <a href="javascript:;">
+                <div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin="primary"><span>默认展开</span><i class="layui-icon layui-icon-ok"></i></div>
+                <!--<i class="layui-icon layui-icon-ok"></i>-->
+                <!--<i class="layui-icon layui-icon-ok"></i>-->
+                <!--<input type="checkbox" name="" title="默认展开" lay-skin="primary" checked></label>-->
+            </a>
+            <!--<input type="checkbox" name="" title="默认展开" lay-skin="primary" checked>-->
+            <dl class="layui-nav-child">
+                <dd><a href="javascript:;">选项一</a></dd>
+                <dd><a href="javascript:;">选项二</a></dd>
+                <dd><a href="javascript:;">选项三</a></dd>
+                <dd><a href="javascript:;">跳转项</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item">
+            <a href="javascript:;">解决方案</a>
+            <dl class="layui-nav-child">
+                <dd><a href="javascript:;">移动模块</a></dd>
+                <dd><a href="javascript:;">后台模版</a></dd>
+                <dd><a href="javascript:;">电商平台</a></dd>
+            </dl>
+        </li>
+    </ul>
+</div>
+<script>
+    layui.use(['admin', 'form'], function(){
+        var $ = layui.$
+            ,admin = layui.admin
+            ,element = layui.element,
+            form = layui.form;
+
+        form.render(null, 'component-form-element');
+        element.render('breadcrumb', 'breadcrumb');
+
+        element.render('nav', 'component-nav');
+        element.render('nav', 'component-nav-active');
+
+        element.on('nav(component-nav-active)', function(elem){
+            layer.msg(elem.text());
+        });
+    });
+</script>

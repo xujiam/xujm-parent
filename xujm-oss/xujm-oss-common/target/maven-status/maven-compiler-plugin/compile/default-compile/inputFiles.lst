@@ -1,0 +1,16 @@
+E:\xujm\xujm-parent\xujm-oss\xujm-oss-common\src\main\java\top\xujm\modules\oss\processor\generator\AliYunOssGenerator.java
+E:\xujm\xujm-parent\xujm-oss\xujm-oss-common\src\main\java\top\xujm\modules\oss\processor\OssConfig.java
+E:\xujm\xujm-parent\xujm-oss\xujm-oss-common\src\main\java\top\xujm\modules\oss\service\OssService.java
+E:\xujm\xujm-parent\xujm-oss\xujm-oss-common\src\main\java\top\xujm\modules\oss\processor\OssProcessor.java
+E:\xujm\xujm-parent\xujm-oss\xujm-oss-common\src\main\java\top\xujm\modules\oss\repository\OssRepository.java
+E:\xujm\xujm-parent\xujm-oss\xujm-oss-common\src\main\java\top\xujm\modules\oss\model\OssLog.java
+E:\xujm\xujm-parent\xujm-oss\xujm-oss-common\src\main\java\top\xujm\modules\oss\common\OssResultEnum.java
+E:\xujm\xujm-parent\xujm-oss\xujm-oss-common\src\main\java\top\xujm\modules\oss\service\impl\OssServiceImpl.java
+E:\xujm\xujm-parent\xujm-oss\xujm-oss-common\src\main\java\top\xujm\modules\oss\common\OssConstants.java
+E:\xujm\xujm-parent\xujm-oss\xujm-oss-common\src\main\java\top\xujm\modules\oss\controller\OssController.java
+E:\xujm\xujm-parent\xujm-oss\xujm-oss-common\src\main\java\top\xujm\modules\oss\model\Oss.java
+E:\xujm\xujm-parent\xujm-oss\xujm-oss-common\src\main\java\top\xujm\modules\oss\common\FileTypeEnum.java
+E:\xujm\xujm-parent\xujm-oss\xujm-oss-common\src\main\java\top\xujm\modules\oss\processor\OssGenerator.java
+E:\xujm\xujm-parent\xujm-oss\xujm-oss-common\src\main\java\top\xujm\modules\oss\repository\OssLogRepository.java
+E:\xujm\xujm-parent\xujm-oss\xujm-oss-common\src\main\java\top\xujm\modules\oss\common\OssRemindException.java
+E:\xujm\xujm-parent\xujm-oss\xujm-oss-common\src\main\java\top\xujm\modules\oss\service\impl\OssFileServiceImpl.java

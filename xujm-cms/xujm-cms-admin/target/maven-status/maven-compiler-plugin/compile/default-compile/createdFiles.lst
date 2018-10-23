@@ -1,0 +1,6 @@
+top\xujm\AdminApplication.class
+top\xujm\modules\cms\controller\CmsController.class
+top\xujm\modules\cms\repository\CmsEntiryRepository.class
+top\xujm\modules\cms\repository\CmsArticleEntityRepository.class
+top\xujm\modules\cms\service\impl\CmsServiceImpl.class
+top\xujm\modules\cms\service\CmsService.class

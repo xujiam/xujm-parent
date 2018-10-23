@@ -1,0 +1,210 @@
+<style>
+    .tag-container {
+        height: 101%;
+        margin: -20px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    .tag-row {
+        position: relative;
+        display: block;
+        padding: 10px 0;
+        padding-left: 60px;
+        background-color: #e8e8e8;
+        border: 1px solid #eee;
+        border-top-color: transparent;
+    }
+    .tag-group .tag-group .tag-row {
+        padding-left: 80px;
+        background-color: #eee;
+    }
+    .tag-group .tag-group .tag-group .tag-row {
+        padding-left: 100px;
+        background-color: #f8f8f8;
+    }
+    [type="checkbox"] {
+        opacity: 0;
+    }
+    .checkbox-ico {
+        position: relative;
+        right: 1em;
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        margin-top: -.3em;
+        margin-left: -.3em;
+        font-size: 18px;
+        border: 1px solid #d2d2d2;
+        border-radius: 4px;
+        vertical-align: middle;
+    }
+    .checkbox-ico::before {
+        content: '\0020';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        width: .5em;
+        height: .25em;
+        border-width: 0 0 1px 1px;
+        border-style: solid;
+        border-color: transparent;
+        transform: translate(-50%, -75%) rotate(-45deg);
+    }
+    [type="checkbox"]:checked + .checkbox-ico {
+        color: #5FB878;
+        border: 1px solid transparent;
+        background-color: currentColor;
+    }
+    [type="checkbox"]:checked + .checkbox-ico::before {
+        border-color: #fff;
+    }
+    .tag-submit {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        font-size: 12px;
+        color: #fff;
+        text-decoration: none;
+        background: #5FB878;
+    }
+    .hide-group + .tag-group {
+        display: none;
+    }
+    .collapse-ico {
+        position: relative;
+        right: 2em;
+        float: left;
+        width: 1.2em;
+        height: 1.2em;
+        margin-left: -.6em;
+        color: #5FB878;
+    }
+    .collapse-ico:before {
+        content: '\0020';
+        position: absolute;
+        top: .5em;
+        left: .3em;
+        border-bottom: .4em solid currentColor;
+        border-right: .3em solid transparent;
+        border-left: .3em solid transparent;
+    }
+    .hide-group > .collapse-ico:before {
+        border-top: .4em solid currentColor;
+        border-bottom: 0 none;
+    }
+    .collapse-ico.hidden-ico:before {
+        opacity: 0;
+    }
+</style>
+
+<div class="tag-container layui-form" id="tag_form" lay-filter="layuiadmin-form-auth">
+    <div class="tag-group" >
+        <script type="text/html" template>
+            <input type="hidden" name="roleId" value="{{ d.params.roleId || 0}}" autocomplete="off" class="layui-input">
+        </script>
+        <script type="text/html" template lay-url="/auth/getAllMenuList?roleId={{ d.params.roleId }}">
+
+            {{#
+            layui.each(d.data, function(index, item){
+            var hasChildren = typeof item.list === 'object' && item.list.length > 0;
+            }}
+
+            <label class="tag-row">
+                <i class="collapse-ico{{# if(!hasChildren){ }} hidden-ico{{# } }}"></i>
+                <input class="tag-checkbox" type="checkbox" {{# if(item.isHold){ }}checked{{#} }} value="{{ item.menuId }}" name="options[]">
+                <span class="checkbox-ico"></span>
+                {{ item.menuName }}
+            </label>
+            {{# if(hasChildren){ }}
+            <div class="tag-group">
+                {{#
+                layui.each(item.list, function(index1, item1){
+                var hasChildren1 = typeof item1.list == 'object' && item1.list.length > 0;
+
+                }}
+                <label class="tag-row">
+                    <i class="collapse-ico{{# if(!hasChildren1){ }} hidden-ico{{# } }}"></i>
+                    <input class="tag-checkbox" type="checkbox" {{# if(item1.isHold){ }}checked{{#} }} value="{{ item1.menuId }}" name="options[]">
+                    <span class="checkbox-ico"></span>
+                    {{ item1.menuName }}
+                </label>
+                {{# if(hasChildren1){ }}
+                <div class="tag-group">
+                    {{#
+                    layui.each(item1.list, function(index2, item2){
+
+
+                    }}
+                    <label class="tag-row">
+                        <i class="collapse-ico hidden-ico"></i>
+                        <input class="tag-checkbox" type="checkbox" {{# if(item2.isHold){ }}checked{{#} }} value="{{item2.menuId}}" name="options[]">
+                        <span class="checkbox-ico"></span>
+                        {{item2.menuName}}
+                    </label>
+                    {{# }); }}
+                </div>
+                {{# } }}
+                {{# }); }}
+            </div>
+            {{# } }}
+            {{# }); }}
+        </script>
+    </div>
+    <input type="button" lay-submit lay-filter="LAY-user-auth-submit" value="确认" class="layui-btn tag-submit">
+</div>
+<script src="/src/controller/jquery.js"></script>
+<script>
+    $(function() {
+        console.log('show');
+        function check_group($item) {
+            var $sup = $item.closest('.tag-group').prev('.tag-row').children('.tag-checkbox');
+            if($sup.length) {
+                var group_select = false;
+                $item.closest('.tag-group').find('.tag-checkbox').each(function () {
+                    if ($(this).is(':checked')) {
+                        group_select = true;
+                    }
+                });
+                $sup.prop('checked', group_select);
+                check_group($sup);
+            }
+        }
+
+        $('#tag_form').on('change', '.tag-checkbox', function () {
+            var $sup = $(this).closest('.tag-group').prev('.tag-row').children('.tag-checkbox');
+            var $sub = $(this).closest('.tag-row').next('.tag-group');
+
+            if($(this).is(':checked')) {
+                $sup.prop('checked', true);
+                $sup.closest('.tag-group').prev('.tag-row').children('.tag-checkbox').prop('checked', true);
+                $sub.find('.tag-checkbox').prop('checked', true);
+            } else {
+                $sub.find('.tag-checkbox').prop('checked', false);
+                check_group($(this));
+            }
+        });
+
+        $('#tag_form').on('click', '.collapse-ico', function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+            $(this).closest('.tag-row').toggleClass('hide-group');
+        });
+
+        $('#submit_tags').on('click', function(e) {
+            $('.tag-checkbox').each(function() {
+                if($(this).is(':checked')) {
+                    console.log($(this).val());
+                }
+            })
+        });
+    });
+</script>
+<script>
+    layui.use(['admin', 'form'], function(){
+        var $ = layui.$
+            ,form = layui.form;
+
+    });
+</script>

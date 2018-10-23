@@ -1,0 +1,23 @@
+<div class="layui-form" lay-filter="layuiadmin-form-pwd" style="padding: 20px 0 0 0;">
+    <script type="text/html" template>
+        <input type="hidden" name="userId" value="{{ d.params.userId || 0}}" autocomplete="off" class="layui-input">
+    </script>
+    <div class="layui-form-item">
+        <label class="layui-form-label">新密码</label>
+        <div class="layui-input-inline">
+            <input type="password" name="newPwd"  lay-verify="pass"  lay-verType="tips"  autocomplete="off" class="layui-input" id="LAY_password">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">重复密码</label>
+        <div class="layui-input-inline">
+            <input type="password" name="rePwd" lay-verify="repass"   lay-verType="tips"  autocomplete="off" class="layui-input" >
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        <div class="layui-input-inline">
+            <input type="button" lay-submit lay-filter="LAY-pwd-front-submit" value="确认" class="layui-btn">
+        </div>
+    </div>
+</div>

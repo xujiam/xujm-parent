@@ -1,0 +1,107 @@
+
+
+<title>系统配置</title>
+
+<div class="layui-card layadmin-header">
+    <div class="layui-breadcrumb" lay-filter="breadcrumb">
+        <a lay-href="">主页</a>
+        <a><cite>系统管理</cite></a>
+        <a><cite>系统配置</cite></a>
+    </div>
+</div>
+
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-form layui-card-header layuiadmin-card-header-auto" lay-filter="layadmin-userfront-formlist">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">配置键</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="configKey">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">配置所用地</label>
+                    <div class="layui-input-block">
+                        <select name="configLocal">
+                            <option value="">--请选择--</option>
+                            <option value="0">所有</option>
+                            <option value="1">后台</option>
+                            <option value="2">APP</option>
+                            <option value="3">后台管理</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">配置说明</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="configMark">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <button class="layui-btn layuiadmin-btn-useradmin" lay-submit lay-filter="LAY-user-front-search">
+                        <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-card-body">
+            <div style="padding-bottom: 10px;">
+                <button class="layui-btn layuiadmin-btn-useradmin" data-type="add">添加</button>
+            </div>
+            <table id="LAY-platform-config" lay-filter="LAY-platform-config"></table>
+            <script type="text/html" id="table-common-platform">
+                <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="edit"><i class="layui-icon layui-icon-edit"></i>编辑</a>
+                <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon layui-icon-close"></i>删除</a>
+            </script>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    layui.use('platform', layui.factory('platform')).use(['admin', 'platform', 'table'], function(){
+        var $ = layui.$
+            ,admin = layui.admin
+            ,view = layui.view
+            ,table = layui.table
+            ,form = layui.form;
+        form.render(null, 'layadmin-userfront-formlist');
+        //监听搜索
+        form.on('submit(LAY-user-front-search)', function(data){
+            var field = data.field;
+            //执行重载
+            table.reload('LAY-platform-config', {
+                where: field
+            });
+        });
+        //事件
+        var active = {
+            add: function(){
+                admin.popup({
+                    title: '添加配置'
+                    ,area: ['560px', '500px']
+                    ,id: 'LAY-popup-config-add'
+                    ,success: function(layero, index){
+                        view(this.id).render('platform/config/configform').done(function(){
+                            form.render(null, 'layuiadmin-form-platform');
+                            //监听提交
+                            form.on('submit(LAY-platform-config-submit)', function(data){
+                                var field = data.field; //获取提交的字段
+                                formSubmit("platform/addConfig",field,function () {
+                                    layui.table.reload('LAY-platform-config'); //重载表格
+                                    layer.close(index); //执行关闭
+                                })
+                            });
+                        });
+                    }
+                });
+            }
+        };
+        $('.layui-btn.layuiadmin-btn-useradmin').on('click', function(){
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+    });
+</script>

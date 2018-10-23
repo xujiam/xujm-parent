@@ -8,7 +8,17 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/xujm-oss/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/xujm-blog/pom.xml" />
+        <option value="$PROJECT_DIR$/xujm-blog/xujm-blog-admin/pom.xml" />
+        <option value="$PROJECT_DIR$/xujm-blog/xujm-blog-common/pom.xml" />
+        <option value="$PROJECT_DIR$/xujm-blog/xujm-blog-web/pom.xml" />
+        <option value="$PROJECT_DIR$/xujm-oss/xujm-oss/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">

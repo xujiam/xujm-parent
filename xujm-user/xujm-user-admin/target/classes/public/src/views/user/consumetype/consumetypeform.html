@@ -1,0 +1,80 @@
+
+<style>
+    .pocket-form-label{
+        width: 120px;
+    }
+</style>
+
+<div class="layui-form" lay-filter="layuiadmin-consumetype-form-list" style="padding: 20px 30px 0 0;">
+    <script type="text/html" template>
+        <input type="hidden" name="id" value="{{ d.params.id || 0}}" autocomplete="off" class="layui-input">
+    </script>
+    <div class="layui-form-item">
+        <label class="layui-form-label pocket-form-label">消费对应码</label>
+        <div class="layui-input-inline">
+            <script type="text/html" template>
+                <input type="text" name="consumeCode" value="{{ d.params.consumeCode || '' }}" lay-verify="required" autocomplete="off" class="layui-input">
+            </script>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label pocket-form-label">消费币转换率</label>
+        <div class="layui-input-inline">
+            <script type="text/html" template>
+                <input type="text" name="transRate" value="{{ d.params.transRate || '0' }}" lay-verify="required" autocomplete="off" class="layui-input">
+            </script>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label pocket-form-label">收益取整方式</label>
+        <div class="layui-input-inline">
+            <script type="text/html" template>
+                <select name="roundWay" lay-verify="required">
+                    <option value="">请选择收益取整方式</option>
+                    <option value="0" {{ d.params.roundWay === 0 ? 'selected' : '' }}>不变</option>
+                    <option value="1" {{ d.params.roundWay === 1 ? 'selected' : '' }}>向下取整</option>
+                    <option value="2" {{ d.params.roundWay === 2 ? 'selected' : '' }}>四舍五入</option>
+                    <option value="3" {{ d.params.roundWay === 3 ? 'selected' : '' }}>向上取整</option>
+                </select>
+            </script>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label pocket-form-label">是否冻结</label>
+        <div class="layui-input-block">
+            <script type="text/html" template>
+                <input type="radio" name="isFrozen" value="0" title="否" {{ d.params.isFrozen === 0 ? 'checked' : '' }} checked>
+                <input type="radio" name="isFrozen" value="1" title="是" {{ d.params.isFrozen === 1 ? 'checked' : '' }}>
+            </script>
+        </div>
+    </div>
+    <div class="layui-form-item" style="display: none">
+        <label class="layui-form-label pocket-form-label">是否启用</label>
+        <div class="layui-input-inline">
+            <script type="text/html" template>
+            <input type="text" name="isEnable" value="{{ d.params.isEnable || '0' }}" lay-verify="required" autocomplete="off" class="layui-input">
+            </script>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label pocket-form-label">消费说明</label>
+        <div class="layui-input-inline">
+            <script type="text/html" template>
+                <input type="text" name="mark"  value="{{ d.params.mark || '' }}" lay-verify="required" autocomplete="off" class="layui-input">
+            </script>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label pocket-form-label"></label>
+        <div class="layui-input-inline">
+            <input type="button" lay-submit lay-filter="LAY-consumetype-form-submit" value="确认" class="layui-btn">
+        </div>
+    </div>
+</div>
+
+<script>
+    layui.use(['admin', 'form'], function(){
+        var $ = layui.$
+            ,form = layui.form;
+    });
+</script>

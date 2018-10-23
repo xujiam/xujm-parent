@@ -2,26 +2,26 @@
   "hints": [],
   "groups": [
     {
-      "sourceType": "top.xujm.core.plugins.datasource.DataSourceConfiguration",
-      "name": "spring.datasource.master",
-      "sourceMethod": "masterDataSource()",
-      "type": "javax.sql.DataSource"
-    },
-    {
       "sourceType": "top.xujm.core.plugins.datasource.properties.MasterProperties",
       "name": "spring.datasource.master",
       "type": "top.xujm.core.plugins.datasource.properties.MasterProperties"
     },
     {
       "sourceType": "top.xujm.core.plugins.datasource.DataSourceConfiguration",
-      "name": "spring.datasource.slave",
-      "sourceMethod": "slaveDataSourceOne()",
+      "name": "spring.datasource.master",
+      "sourceMethod": "masterDataSource()",
       "type": "javax.sql.DataSource"
     },
     {
       "sourceType": "top.xujm.core.plugins.datasource.properties.SlaveProperties",
       "name": "spring.datasource.slave",
       "type": "top.xujm.core.plugins.datasource.properties.SlaveProperties"
+    },
+    {
+      "sourceType": "top.xujm.core.plugins.datasource.DataSourceConfiguration",
+      "name": "spring.datasource.slave",
+      "sourceMethod": "slaveDataSourceOne()",
+      "type": "javax.sql.DataSource"
     }
   ],
   "properties": [

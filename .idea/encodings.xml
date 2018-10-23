@@ -6,6 +6,10 @@
     <file url="file://$PROJECT_DIR$/xujm-blog/xujm-blog-admin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xujm-blog/xujm-blog-common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xujm-blog/xujm-blog-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xujm-cms" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xujm-cms/xujm-cms-admin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xujm-cms/xujm-cms-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xujm-cms/xujm-cms-web" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xujm-common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xujm-common/xujm-common-admin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xujm-common/xujm-common-core" charset="UTF-8" />
@@ -16,6 +20,15 @@
     <file url="file://$PROJECT_DIR$/xujm-gateway/xujm-gateway-admin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xujm-gateway/xujm-gateway-common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xujm-gateway/xujm-gateway-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xujm-lib" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xujm-lib/xujm-file" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xujm-lib/xujm-file/xujm-file-facade" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xujm-lib/xujm-sms" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xujm-lib/xujm-sms/xujm-sms-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xujm-oss" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xujm-oss/xujm-oss-admin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xujm-oss/xujm-oss-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xujm-oss/xujm-oss-web" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xujm-user" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xujm-user/xujm-user-admin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xujm-user/xujm-user-common" charset="UTF-8" />

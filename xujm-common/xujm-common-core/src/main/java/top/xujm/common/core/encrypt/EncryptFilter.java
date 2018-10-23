@@ -35,7 +35,9 @@ public class EncryptFilter implements Filter {
                 //data = WkUtils.decryptString(data);
             }
         }else {
-            data = LibSysUtil.urlDecode(data);
+            if(StringUtils.isNotEmpty(data)){
+                data = LibSysUtil.urlDecode(data);
+            }
         }
         if(StringUtils.isNotEmpty(data)){
             extraParams = JSONObject.parseObject(data);
