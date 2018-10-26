@@ -1,5 +1,6 @@
 package top.xujm.modules.cms.model;
 
+
 import top.xujm.core.base.BaseConstants;
 
 import javax.persistence.*;
@@ -166,6 +167,17 @@ public class Cms extends CmsBase{
     @Override
     public void setCover(String cover) {
         this.cover = cover;
+    }
+
+    @Override
+    @Column(name = "label", nullable = false)
+    public String getLabel() {
+        return label;
+    }
+
+    @Override
+    public void setLabel(String label) {
+        this.label = label;
     }
 
 }

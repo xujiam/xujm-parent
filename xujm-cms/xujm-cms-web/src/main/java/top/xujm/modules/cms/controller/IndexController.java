@@ -12,6 +12,7 @@ import top.xujm.core.enums.BooleanTypeEnum;
 import top.xujm.core.page.CmsPage;
 import top.xujm.modules.cms.biz.CmsBiz;
 import top.xujm.modules.cms.service.CmsService;
+import top.xujm.modules.config.biz.PlatformBiz;
 
 @Controller
 public class IndexController extends WebBaseController {
@@ -20,6 +21,8 @@ public class IndexController extends WebBaseController {
     private CmsBiz cmsBiz;
     @Autowired
     private CmsService cmsService;
+    @Autowired
+    private PlatformBiz platformBiz;
 
 
     @GetMapping("/")
@@ -27,6 +30,11 @@ public class IndexController extends WebBaseController {
         addModel(model);
         model.addAttribute("articleList",cmsService.getNewCmsList(cmsPage));
         return getTemplate("index");
+    }
+
+    @GetMapping("/ie")
+    public String ie(){
+        return getTemplate("ie");
     }
 
     @GetMapping("/cms/detail/{cmsId}.html")
@@ -46,8 +54,9 @@ public class IndexController extends WebBaseController {
     private void addModel(ModelMap model){
         model.addAttribute("siteName","随风逸");
         model.addAttribute("template","default");
-        model.addAttribute("sliderList",null);
+        model.addAttribute("sliderList",platformBiz.getAdvList("home",BooleanTypeEnum.TRUE));
         model.addAttribute("menuList",cmsBiz.getCmsMenuList(BooleanTypeEnum.TRUE.getType()));
+        model.addAttribute("linkList",platformBiz.getPlatformLinkList(BooleanTypeEnum.TRUE));
     }
 
 }

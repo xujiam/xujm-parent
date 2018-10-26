@@ -21,6 +21,7 @@ public class CmsBase extends UserBaseInfo {
     protected byte status;
     protected String template;
     protected String url;
+    protected String label;
     protected long addTime;
 
     public void copy(CmsBase cmsBase){
@@ -35,6 +36,7 @@ public class CmsBase extends UserBaseInfo {
         this.template = cmsBase.getTemplate();
         this.addTime = cmsBase.getAddTime();
         this.url = cmsBase.getUrl();
+        this.label = cmsBase.getLabel();
         this.cover = cmsBase.getCover();
     }
 
@@ -60,6 +62,12 @@ public class CmsBase extends UserBaseInfo {
         this.cover = cover;
     }
 
+    public CmsBase(int cmsId,int userId,String title,String description,int categoryId,int readNum
+            ,int commentNum,int likeNum,long addTime,short sorts,byte status,String template,String cover,String label){
+        this(cmsId,userId,title,description,categoryId,readNum,commentNum,likeNum, addTime,sorts,status,template,cover);
+        this.label = label;
+    }
+
     public int getCmsId() {
         return cmsId;
     }
@@ -68,10 +76,12 @@ public class CmsBase extends UserBaseInfo {
         this.cmsId = cmsId;
     }
 
+    @Override
     public int getUserId() {
         return userId;
     }
 
+    @Override
     public void setUserId(int userId) {
         this.userId = userId;
     }
@@ -174,5 +184,13 @@ public class CmsBase extends UserBaseInfo {
 
     public void setCover(String cover) {
         this.cover = cover;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
     }
 }
