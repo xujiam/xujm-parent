@@ -16,4 +16,6 @@ public interface CmsService {
     CmsArticle getArticleDetail(int cmsId);
 
     SlicePage<Cms> getCategoryArticleList(int categoryId, CmsPage cmsPage);
+
+    SlicePage<Cms> getSearchCmsList(String keyword,CmsPage cmsPage);
 }

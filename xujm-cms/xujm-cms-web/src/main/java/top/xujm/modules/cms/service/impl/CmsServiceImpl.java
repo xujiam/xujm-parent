@@ -32,6 +32,13 @@ public class CmsServiceImpl implements CmsService {
     }
 
     @Override
+    public SlicePage<Cms> getSearchCmsList(String keyword, CmsPage cmsPage){
+        Pageable pageable = new PageRequest(cmsPage.getPage(),cmsPage.getSize(), Sort.Direction.DESC,"cmsId");
+        keyword = "%"+keyword+"%";
+        return new SlicePage<>(cmsWebRepository.findAllByTitleLike(keyword,pageable));
+    }
+
+    @Override
     public SlicePage<Cms> getCategoryArticleList(int categoryId,CmsPage cmsPage){
         Pageable pageable = new PageRequest(cmsPage.getPage(),cmsPage.getSize(), Sort.Direction.DESC,"cmsId");
         return new SlicePage<>(cmsWebRepository.findAllByCategoryIdAndStatus(categoryId,CmsStatusEnum.NORMAL.getStatus(),pageable));

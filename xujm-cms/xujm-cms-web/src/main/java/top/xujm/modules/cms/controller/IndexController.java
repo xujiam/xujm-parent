@@ -1,11 +1,11 @@
 package top.xujm.modules.cms.controller;
 
-import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import springfox.documentation.annotations.ApiIgnore;
 import top.xujm.core.base.WebBaseController;
 import top.xujm.core.enums.BooleanTypeEnum;
@@ -29,6 +29,13 @@ public class IndexController extends WebBaseController {
     public String index(@ApiIgnore ModelMap model,CmsPage cmsPage){
         addModel(model);
         model.addAttribute("articleList",cmsService.getNewCmsList(cmsPage));
+        return getTemplate("index");
+    }
+
+    @PostMapping("/cms/search")
+    public String search(@ApiIgnore ModelMap model,String keyword,CmsPage cmsPage){
+        addModel(model);
+        model.addAttribute("articleList",cmsService.getSearchCmsList(keyword,cmsPage));
         return getTemplate("index");
     }
 

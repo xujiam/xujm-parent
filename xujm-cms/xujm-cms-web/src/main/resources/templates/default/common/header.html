@@ -24,9 +24,9 @@
                 <li class="active"><a href="index.html"><span class="glyphicon glyphicon-home"></span>网站首页</a></li>
                 <li th:each="menu : ${menuList}"><a th:href="@{${menu.menuUrl}}" ><span th:class="${'glyphicon '+menu.menuIcon}"></span><span style="margin: 0" th:text="${menu.menuName}"></span></a></li>
             </ul>
-            <form class="navbar-form" action="#" method="post" style="padding:0 25px;">
+            <form class="navbar-form" action="/cms/search" method="get" style="padding:0 25px;">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="请输入关键字">
+                    <input name="keyword" type="text" class="form-control" placeholder="请输入关键字">
                     <span class="input-group-btn">
             <button class="btn btn-default btn-search" type="submit">搜索</button>
             </span> </div>

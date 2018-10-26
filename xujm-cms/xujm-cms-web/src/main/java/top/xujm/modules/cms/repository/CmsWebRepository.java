@@ -14,4 +14,6 @@ public interface CmsWebRepository extends CmsRepository {
 
     Slice<Cms> findAllByStatus(byte status,Pageable pageable);
 
+    Slice<Cms> findAllByTitleLike(String keyword,Pageable pageable);
+
 }
