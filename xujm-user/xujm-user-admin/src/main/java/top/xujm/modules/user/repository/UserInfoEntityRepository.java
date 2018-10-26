@@ -30,10 +30,10 @@ public interface UserInfoEntityRepository extends JpaRepository<UserInfo,Integer
 
 
 
-    @Query(value = "SELECT DATE_FORMAT(add_time,'%Y-%m-%d') as d ,:var1 ,COUNT(1) FROM weking_user_account GROUP BY d",
+    @Query(value = "SELECT DATE_FORMAT(add_time,'%Y-%m-%d') as d ,:var1 ,COUNT(1) FROM xujm_user_account GROUP BY d",
             nativeQuery = true)
     List<Map<String, Object>> selectRegisterDay(@Param("var1") String var1);
 
-    @Query(value = "SELECT COUNT(*) FROM weking_user_info", nativeQuery = true)
+    @Query(value = "SELECT COUNT(*) FROM xujm_user_info", nativeQuery = true)
     int selectUserNum();
 }

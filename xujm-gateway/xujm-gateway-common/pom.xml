@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>top.xujm</groupId>
-            <artifactId>xujm-common-web</artifactId>
+            <artifactId>xujm-common-core</artifactId>
             <version>1.0.0</version>
         </dependency>
         <dependency>

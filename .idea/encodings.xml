@@ -2,10 +2,6 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/xujm-blog" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/xujm-blog/xujm-blog-admin" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/xujm-blog/xujm-blog-common" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/xujm-blog/xujm-blog-web" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xujm-cms" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xujm-cms/xujm-cms-admin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xujm-cms/xujm-cms-common" charset="UTF-8" />
@@ -25,10 +21,16 @@
     <file url="file://$PROJECT_DIR$/xujm-lib/xujm-file/xujm-file-facade" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xujm-lib/xujm-sms" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xujm-lib/xujm-sms/xujm-sms-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xujm-msg" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xujm-msg/xujm-msg-facade" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xujm-oss" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xujm-oss/xujm-oss-admin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xujm-oss/xujm-oss-common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xujm-oss/xujm-oss-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xujm-record" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xujm-record/xujm-record-admin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xujm-record/xujm-record-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xujm-record/xujm-record-web" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xujm-user" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xujm-user/xujm-user-admin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xujm-user/xujm-user-common" charset="UTF-8" />

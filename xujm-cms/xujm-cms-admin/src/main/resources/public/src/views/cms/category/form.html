@@ -1,0 +1,73 @@
+<style>
+    .pocket-form-label{
+        width: 120px;
+    }
+</style>
+
+<div class="layui-form" lay-filter="layuiadmin-menu-form-list" style="padding: 20px 30px 0 0;">
+    <script type="text/html" template>
+        <input type="hidden" name="categoryId" value="{{ d.params.categoryId || 0}}" autocomplete="off" class="layui-input">
+    </script>
+    <div class="layui-form-item">
+        <label class="layui-form-label pocket-form-label">类别名称</label>
+        <div class="layui-input-inline">
+            <script type="text/html" template>
+                <input type="text" name="name" value="{{ d.params.name || '' }}" lay-verify="required" autocomplete="off" class="layui-input">
+            </script>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label pocket-form-label">类别级别</label>
+        <div class="layui-input-inline">
+            <script type="text/html" template>
+                <select name="menuPid1" lay-filter="menuPid1">
+                    <option value="0" {{ d.params.parentId === 0 || d.params.parentId == undefined ? 'selected' : '' }} selected>一级菜单</option>
+                    <option value="1" {{ d.params.parentId !== 0 ? 'selected' : '' }}>下级菜单</option>
+                </select>
+            </script>
+        </div>
+    </div>
+    <div class="layui-form-item" style="display: none" id="menuPid">
+        <label class="layui-form-label pocket-form-label">父菜单</label>
+        <div class="layui-input-inline">
+            <select name="menuPid2" lay-verify="required"></select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label pocket-form-label">类别图标</label>
+        <div class="layui-input-inline">
+            <script type="text/html" template>
+                <input type="text" name="icon" value="{{ d.params.icon || '' }}"  autocomplete="off" class="layui-input">
+            </script>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label pocket-form-label">排序</label>
+        <div class="layui-input-inline">
+            <script type="text/html" template>
+                <input type="text" name="sorts" value="{{ d.params.sorts || '0' }}" autocomplete="off" class="layui-input">
+            </script>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label pocket-form-label"></label>
+        <div class="layui-input-inline">
+            <input type="button" lay-submit lay-filter="LAY-menu-form-submit" value="确认" class="layui-btn">
+        </div>
+    </div>
+</div>
+
+<script>
+    layui.use(['admin','form' ], function(){
+        var $ = layui.$
+            ,form = layui.form;
+        form.on('select(menuPid1)', function(data){
+            if (data.value == 0) {
+                $("#menuPid").css("display","none")
+            } else {
+                $("#menuPid").css("display","inline-block")
+            }
+        });
+    })
+
+</script>

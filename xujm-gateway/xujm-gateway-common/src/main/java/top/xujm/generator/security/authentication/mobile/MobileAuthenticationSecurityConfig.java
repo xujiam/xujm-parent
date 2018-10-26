@@ -20,9 +20,9 @@ import org.springframework.stereotype.Component;
 public class MobileAuthenticationSecurityConfig extends SecurityConfigurerAdapter<DefaultSecurityFilterChain, HttpSecurity> {
 
     @Autowired
-    private AuthenticationSuccessHandler wekingAuthenticationSuccessHandler;
+    private AuthenticationSuccessHandler xujmAuthenticationSuccessHandler;
     @Autowired
-    private AuthenticationFailureHandler wekingAuthenticationFailureHandler;
+    private AuthenticationFailureHandler xujmAuthenticationFailureHandler;
 
     @Qualifier("securityUserServiceImpl")
     @Autowired
@@ -32,8 +32,8 @@ public class MobileAuthenticationSecurityConfig extends SecurityConfigurerAdapte
     public void configure(HttpSecurity http) throws Exception {
         MobilePasswordAuthenticationFilter mobileAuthenticationFilter = new MobilePasswordAuthenticationFilter();
         mobileAuthenticationFilter.setAuthenticationManager(http.getSharedObject(AuthenticationManager.class));
-        mobileAuthenticationFilter.setAuthenticationSuccessHandler(wekingAuthenticationSuccessHandler);
-        mobileAuthenticationFilter.setAuthenticationFailureHandler(wekingAuthenticationFailureHandler);
+        mobileAuthenticationFilter.setAuthenticationSuccessHandler(xujmAuthenticationSuccessHandler);
+        mobileAuthenticationFilter.setAuthenticationFailureHandler(xujmAuthenticationFailureHandler);
 
         MobileAuthenticationProvider mobileAuthenticationProvider = new MobileAuthenticationProvider();
         mobileAuthenticationProvider.setUserDetailsService(userDetailsService);

@@ -1,13 +1,16 @@
 package top.xujm.modules.cms.model;
 
+import top.xujm.core.base.BaseConstants;
+
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 /**
  * @author Xujm
  */
 @Entity
-@Table(name = "weking_cms_category", schema = "weking")
+@Table(name = "xujm_cms_category", schema = BaseConstants.DATABASE_SCHEMA)
 public class CmsCategory {
     private int categoryId;
     private int parentId;
@@ -16,6 +19,7 @@ public class CmsCategory {
     private short sorts;
     private byte isShow;
     private long addTime;
+    private List<CmsCategory> list;
 
     @Id
     @Column(name = "category_id", nullable = false)
@@ -87,4 +91,12 @@ public class CmsCategory {
         this.addTime = addTime;
     }
 
+    @Transient
+    public List<CmsCategory> getList() {
+        return list;
+    }
+
+    public void setList(List<CmsCategory> list) {
+        this.list = list;
+    }
 }

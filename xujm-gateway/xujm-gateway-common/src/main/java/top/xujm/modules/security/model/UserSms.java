@@ -1,5 +1,6 @@
 package top.xujm.modules.security.model;
 
+import top.xujm.core.base.BaseConstants;
 import top.xujm.modules.security.common.SecurityConstants;
 
 import javax.persistence.*;
@@ -8,7 +9,7 @@ import javax.persistence.*;
  * @author Xujm
  */
 @Entity
-@Table(name = SecurityConstants.MODULE_PREFIX +"_sms", schema = "weking")
+@Table(name = SecurityConstants.MODULE_PREFIX +"_sms", schema = BaseConstants.DATABASE_SCHEMA)
 public class UserSms {
     private int id;
     private String captcha;

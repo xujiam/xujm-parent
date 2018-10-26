@@ -1,5 +1,7 @@
 package top.xujm.modules.config.model;
 
+import top.xujm.core.base.BaseConstants;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -7,7 +9,7 @@ import java.util.Objects;
  * @author Xujm
  */
 @Entity
-@Table(name = "weking_platform_config", schema = "weking")
+@Table(name = "xujm_platform_config", schema = BaseConstants.DATABASE_SCHEMA)
 public class PlatformConfig {
     private int id;
     private String configKey;

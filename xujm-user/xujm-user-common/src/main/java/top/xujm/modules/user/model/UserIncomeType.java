@@ -1,5 +1,8 @@
 package top.xujm.modules.user.model;
 
+import top.xujm.core.base.BaseConstants;
+import top.xujm.modules.user.common.UserConstants;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -7,7 +10,7 @@ import java.util.Objects;
  * @author Xujm
  */
 @Entity
-@Table(name = "weking_user_income_type", schema = "weking")
+@Table(name = UserConstants.MODULE_PREFIX + "_income_type", schema = BaseConstants.DATABASE_SCHEMA)
 public class UserIncomeType {
     private int id;
     private String incomeCode;

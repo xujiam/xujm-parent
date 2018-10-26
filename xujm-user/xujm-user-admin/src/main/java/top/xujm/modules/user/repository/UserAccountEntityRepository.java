@@ -56,7 +56,7 @@ public interface UserAccountEntityRepository extends JpaRepository<UserAccount,I
     Page<UserAccountEntity> selectUserAccountList(String param, Pageable pageable);*/
 
     /*@Query(value = "select count(*)" +
-            " from weking_user_account u left join weking_user_info i on u.user_id = i.user_id",
+            " from xujm_user_account u left join xujm_user_info i on u.user_id = i.user_id",
             nativeQuery = true)
     Integer selectUserList();*/
 

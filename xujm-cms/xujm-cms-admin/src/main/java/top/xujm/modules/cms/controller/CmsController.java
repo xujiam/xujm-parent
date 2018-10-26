@@ -1,6 +1,5 @@
 package top.xujm.modules.cms.controller;
 
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,15 +8,15 @@ import org.springframework.web.multipart.MultipartFile;
 import top.xujm.common.core.model.ResultData;
 import top.xujm.common.core.model.ResultMsg;
 import top.xujm.config.resource.ResourceConfig;
+import top.xujm.modules.cms.biz.CmsBiz;
 import top.xujm.modules.cms.model.Cms;
 import top.xujm.modules.cms.model.CmsArticle;
+import top.xujm.modules.cms.model.CmsCategory;
 import top.xujm.modules.cms.service.CmsService;
 import top.xujm.modules.common.model.ResultAdminData;
 import top.xujm.modules.oss.model.OssLog;
 import top.xujm.modules.oss.service.OssService;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -31,10 +30,33 @@ public class CmsController {
 
     @Autowired
     private CmsService cmsService;
+    @Autowired
+    private CmsBiz cmsBiz;
 
     @Autowired
     private OssService ossService;
 
+    @GetMapping("/category/list")
+    public ResultData<List<CmsCategory>> getCmsCategoryList(){
+        return new ResultData<>(cmsBiz.getAllCategoryList());
+    }
+
+    @PostMapping("/category/del")
+    public ResultMsg deleteCmsCategory(int categoryId){
+        cmsBiz.delCmsCategory(categoryId);
+        return new ResultMsg();
+    }
+
+    @PostMapping("/category/add")
+    public ResultMsg deleteCmsCategory(CmsCategory cmsCategory){
+        cmsBiz.addCmsCategory(cmsCategory);
+        return new ResultMsg();
+    }
+
+    @GetMapping("/category/plist")
+    public ResultData<List<CmsCategory>> getCategoryListByParentId(int parentId){
+        return new ResultData<>(cmsBiz.getCategoryListByParentId(parentId));
+    }
     /**
      * 获取股票热点
      */

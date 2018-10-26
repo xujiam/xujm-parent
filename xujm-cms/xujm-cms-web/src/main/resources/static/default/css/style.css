@@ -53,12 +53,12 @@ body, input, button, textarea, select {
 	padding: 0;
 }
 /*禁止文字选中*/
-.user-select {
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
+/*.user-select {*/
+	/*-webkit-user-select: none;*/
+	/*-moz-user-select: none;*/
+	/*-ms-user-select: none;*/
+	/*user-select: none;*/
+/*}*/
  @media (min-width: 1366px) {
 .container {
 	width: 1280px;

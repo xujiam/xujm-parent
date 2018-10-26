@@ -1,0 +1,132 @@
+<!doctype html>
+<!--
+                              _.._        ,------------.
+                           ,'      `.    ( We want you! )
+                          /  __) __` \    `-,----------'
+                         (  (`-`(-')  ) _.-'
+                         /)  \  = /  (
+                        /'    |--' .  \
+                       (  ,---|  `-.)__`
+                        )(  `-.,--'   _`-.
+                       '/,'          (  Wy",
+                        (_       ,    `/,-' )
+                        `.__,  : `-'/  /`--'
+                          |     `--'  |
+                          `   `-._   /
+                           \        (
+                           /\ .      \.  YLSAT.COM
+                          / |` \     ,-\
+                         /  \| .)   /   \
+                        ( ,'|\    ,'     :
+                        | \,`.`--"/      }
+                        `,'    \  |,'    /
+                       / "-._   `-/      |
+                       "-.   "-.,'|     ;
+                      /        _/["---'""]
+                     :        /  |"-     '
+                     '           |      /
+                                 `      |
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="${template+'/common/head'} :: head"></head>
+
+<body>
+<section class="container user-select">
+  <header th:include="${template+'/common/header'} :: header"></header>
+  <!--/超小屏幕可见-->
+  <div class="content-wrap"><!--内容-->
+    <div class="content">
+      <header class="news_header">
+        <h2>欢迎来到随风逸技术博客</h2>
+        <ul>
+          <li>admin 发布于 2015-06-29</li>
+          <li>栏目：<a href="" title="" target="_blank">网站前端</a></li>
+          <li>来源：<a href="" title="" target="_blank">互联网</a></li>
+          <li>共 <strong>2345</strong> 人围观 </li>
+          <li><strong>123</strong> 个不明物体</li>
+        </ul>
+      </header>
+      <article class="news_content" th:utext="${articleInfo.content}"></article>
+      <div class="reprint">转载请说明出处：<a href="" title="" target="_blank">随风逸技术博客</a> » <a href="" title="" target="_blank">欢迎来到随风逸技术博客</a></div>
+      <div class="zambia"><a href="javascript:;" name="zambia" rel=""><span class="glyphicon glyphicon-thumbs-up"></span> 赞（0）</a></div>
+      <div class="tags news_tags">标签： <span data-toggle="tooltip" data-placement="bottom" title="查看关于 本站 的文章"><a href="">本站</a></span> <span data-toggle="tooltip" data-placement="bottom" title="查看关于 随风逸 的文章"><a href="">随风逸</a></span> </div>
+      <!--<nav class="page-nav"> <span class="page-nav-prev">上一篇<br />-->
+        <!--<a href="" rel="prev">欢迎来到随风逸技术博客</a></span> <span class="page-nav-next">下一篇<br />-->
+        <!--<a href="" rel="next">欢迎来到随风逸技术博客</a></span> </nav>-->
+      <!--<div class="content-block related-content visible-lg visible-md">-->
+        <!--<h2 class="title"><strong>相关推荐</strong></h2>-->
+        <!--<ul>-->
+          <!--<li><a target="_blank" href=""><img src="images/logo.jpg" alt="">-->
+            <!--<h3> 欢迎来到随风逸技术博客,在这里可以看到网站前端和后端的技术等 </h3>-->
+            <!--</a></li>-->
+          <!--<li><a target="_blank" href=""><img src="images/img1.jpg" alt="">-->
+            <!--<h3> 欢迎来到随风逸技术博客,在这里可以看到网站前端和后端的技术等 </h3>-->
+            <!--</a></li>-->
+          <!--<li><a target="_blank" href=""><img src="images/img3.jpg" alt="">-->
+            <!--<h3> 欢迎来到随风逸技术博客，在这里可以看到网站前端和后端的技术等 </h3>-->
+            <!--</a></li>-->
+          <!--<li><a target="_blank" href=""><img src="images/img2.jpg" alt="">-->
+            <!--<h3> 欢迎来到随风逸技术博客，在这里可以看到网站前端和后端的技术等 </h3>-->
+            <!--</a></li>-->
+          <!--<li><a target="_blank" href=""><img src="images/img2.jpg" alt="">-->
+            <!--<h3> 欢迎来到随风逸技术博客,在这里可以看到网站前端和后端的技术等 </h3>-->
+            <!--</a></li>-->
+          <!--<li><a target="_blank" href=""><img src="images/img3.jpg" alt="">-->
+            <!--<h3> 欢迎来到随风逸技术博客,在这里可以看到网站前端和后端的技术等 </h3>-->
+            <!--</a></li>-->
+          <!--<li><a target="_blank" href=""><img src="images/img1.jpg" alt="">-->
+            <!--<h3> 欢迎来到随风逸技术博客，在这里可以看到网站前端和后端的技术等 </h3>-->
+            <!--</a></li>-->
+          <!--<li><a target="_blank" href=""><img src="images/logo.jpg" alt="">-->
+            <!--<h3> 欢迎来到随风逸技术博客，在这里可以看到网站前端和后端的技术等 </h3>-->
+            <!--</a></li>-->
+        <!--</ul>-->
+      <!--</div>-->
+      <!--<div class="content-block comment">-->
+        <!--<h2 class="title"><strong>评论</strong></h2>-->
+        <!--<form action="comment.php" method="post" class="form-inline" id="comment-form">-->
+          <!--<div class="comment-title">-->
+            <!--<div class="form-group">-->
+              <!--<label for="commentName">昵称：</label>-->
+              <!--<input type="text" name="commentName" class="form-control" id="commentName" placeholder="随风逸">-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <!--<label for="commentEmail">邮箱：</label>-->
+              <!--<input type="email" name="commentEmail" class="form-control" id="commentEmail" placeholder="admin@ylsat.com">-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="comment-form">-->
+            <!--<textarea placeholder="你的评论可以一针见血" name="commentContent"></textarea>-->
+            <!--<div class="comment-form-footer">-->
+              <!--<div class="comment-form-text">请先 <a href="javascript:;">登录</a> 或 <a href="javascript:;">注册</a>，也可匿名评论 </div>-->
+              <!--<div class="comment-form-btn">-->
+                <!--<button type="submit" class="btn btn-default btn-comment">提交评论</button>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</form>-->
+        <!--<div class="comment-content">-->
+          <!--<ul>-->
+            <!--<li><span class="face"><img src="images/icon/icon.png" alt=""></span> <span class="text"><strong>随风逸站长</strong> (2015-10-18) 说：<br />-->
+              <!--欢迎来到随风逸技术博客，在这里可以看到网站前端和后端的技术等在这里可以看到网站前端和后端的技术等在这里可以看到网站前端和后端的技术等 ...</span></li>-->
+            <!--<li><span class="face"><img src="images/icon/icon.png" alt=""></span> <span class="text"><strong>随风逸编辑</strong> (2015-10-18) 说：<br />-->
+              <!--欢迎来到随风逸技术博客，在这里可以看到网站前端和后端的技术等 ...</span></li>-->
+            <!--<li><span class="face"><img src="images/icon/icon.png" alt=""></span> <span class="text"><strong>令狐冲</strong> (2015-10-18) 说：<br />-->
+              <!--欢迎来到随风逸技术博客，在这里可以看到网站前端和后端的技术等在这里可以看到网站前端和后端的技术等在这里可以看到网站前端和后端的技术等在这里可以看到网站前端和后端的技术等在这里可以看到网站前端和后端的技术等在这里可以看到网站前端和后端的技术等 ...</span></li>-->
+            <!--<li><span class="face"><img src="images/icon/icon.png" alt=""></span> <span class="text"><strong>任盈盈</strong> (2015-10-18) 说：<br />-->
+              <!--欢迎来到随风逸技术博客，在这里可以看到网站前端和后端的技术等在这里可以看到网站前端和后端的技术等在这里可以看到网站前端和后端的技术等 ...欢迎来到随风逸技术博客，在这里可以看到网站前端和后端的技术等在这里可以看到网站前端和后端的技术等在这里可以看到网站前端和后端的技术等 ...欢迎来到随风逸技术博客，在这里可以看到网站前端和后端的技术等在这里可以看到网站前端和后端的技术等在这里可以看到网站前端和后端的技术等 ...</span></li>-->
+            <!--<li><span class="face"><img src="images/icon/icon.png" alt=""></span> <span class="text"><strong>随风逸站长</strong> (2015-10-18) 说：<br />-->
+              <!--欢迎来到随风逸技术博客，在这里可以看到网站前端和后端的技术等 ...</span></li>-->
+          <!--</ul>-->
+        <!--</div>-->
+      <!--</div>-->
+    </div>
+  </div>
+  <!--/内容-->
+  <aside th:replace="${template+'/common/aside'} :: aside" ></aside>
+  <!--/右侧>992px显示-->
+  <footer th:replace="${template+'/common/footer'} :: footer"></footer>
+</section>
+<div th:include="${template+'/common/top'} :: top"></div>
+</body>
+</html>

@@ -1,5 +1,8 @@
 package top.xujm.modules.user.model;
 
+import top.xujm.core.base.BaseConstants;
+import top.xujm.modules.user.common.UserConstants;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -7,7 +10,7 @@ import java.util.Objects;
  * @author Xujm
  */
 @Entity
-@Table(name = "weking_user_feedback", schema = "weking")
+@Table(name = UserConstants.MODULE_PREFIX + "_feedback", schema = BaseConstants.DATABASE_SCHEMA)
 public class UserFeedback extends UserBaseInfo{
     private int id;
     private String content;

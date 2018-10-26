@@ -3,6 +3,7 @@ package top.xujm.modules.user.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import top.xujm.core.base.BaseConstants;
 import top.xujm.modules.user.common.UserConstants;
 
 import javax.persistence.*;
@@ -13,7 +14,7 @@ import java.util.Objects;
  */
 @ApiModel("用户钱包")
 @Entity
-@Table(name = UserConstants.MODULE_PREFIX + "_pocket", schema = "weking")
+@Table(name = UserConstants.MODULE_PREFIX + "_pocket", schema = BaseConstants.DATABASE_SCHEMA)
 public class UserPocket extends UserBaseInfo{
     @ApiModelProperty("剩余收入")
     private double surplusTicket;

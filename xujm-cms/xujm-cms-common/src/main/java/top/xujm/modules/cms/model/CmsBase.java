@@ -2,14 +2,14 @@ package top.xujm.modules.cms.model;
 
 
 import top.xujm.config.resource.ResourceConfig;
+import top.xujm.modules.user.model.UserBaseInfo;
 
 /**
  * @author Xujm
  */
-public class CmsBase {
+public class CmsBase extends UserBaseInfo {
 
     protected int cmsId;
-    protected int userId;
     protected String title;
     protected String description;
     protected String cover;

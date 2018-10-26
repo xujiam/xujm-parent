@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
  * @author Xujm
  */
 @Component
-@ConfigurationProperties(prefix = "weking.security")
+@ConfigurationProperties(prefix = "xujm.security")
 public class SecurityProperties {
 
     private String ignoreUrl = "/user/login/*";

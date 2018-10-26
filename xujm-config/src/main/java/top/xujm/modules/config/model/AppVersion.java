@@ -1,6 +1,7 @@
 package top.xujm.modules.config.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import top.xujm.core.base.BaseConstants;
 
 import javax.persistence.*;
 
@@ -8,7 +9,7 @@ import javax.persistence.*;
  * @author Xujm
  */
 @Entity
-@Table(name = "weking_platform_app_version", schema = "weking")
+@Table(name = "xujm_platform_app_version", schema = BaseConstants.DATABASE_SCHEMA)
 public class AppVersion {
     @JsonIgnore
     private int id;

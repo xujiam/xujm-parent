@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 @Configuration
 public class InitConfig {
 
-    @Value("${weking.http.port:0}")
+    @Value("${xujm.http.port:0}")
     private Integer httpPort;
 
     /**

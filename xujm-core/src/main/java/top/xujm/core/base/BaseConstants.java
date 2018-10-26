@@ -17,7 +17,9 @@ public interface BaseConstants {
     /**
      * 表名前缀
      */
-    String TABLE_PREFIX = "weking";
+    String TABLE_PREFIX = "xujm";
+
+    String DATABASE_SCHEMA = "xujm";
     /**
      * 表名连接符
      */

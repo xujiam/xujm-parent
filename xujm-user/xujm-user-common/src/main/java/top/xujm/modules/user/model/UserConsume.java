@@ -2,6 +2,7 @@ package top.xujm.modules.user.model;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import top.xujm.core.base.BaseConstants;
 import top.xujm.modules.user.common.UserConstants;
 
 import javax.persistence.*;
@@ -11,7 +12,7 @@ import javax.persistence.*;
  */
 @ApiModel("用户消费实体")
 @Entity
-@Table(name = UserConstants.MODULE_PREFIX + "_consume", schema = "weking")
+@Table(name = UserConstants.MODULE_PREFIX + "_consume", schema = BaseConstants.DATABASE_SCHEMA)
 public class UserConsume extends UserBaseInfo{
     private int id;
     private int toId;

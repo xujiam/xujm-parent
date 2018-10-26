@@ -23,6 +23,8 @@
         <module>xujm-lib</module>
         <module>xujm-cms</module>
         <module>xujm-oss</module>
+        <module>xujm-record</module>
+        <module>xujm-msg</module>
     </modules>
 
     <properties>

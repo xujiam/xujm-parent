@@ -1,11 +1,12 @@
 package top.xujm.modules.user.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import top.xujm.modules.user.common.UserConstants;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "weking_user_account")
+@Table(name = UserConstants.MODULE_PREFIX + "_account")
 public class UserAccountEntity extends UserBaseInfo{
 
     private int userId;

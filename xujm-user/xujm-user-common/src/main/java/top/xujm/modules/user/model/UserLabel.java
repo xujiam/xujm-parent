@@ -3,6 +3,8 @@ package top.xujm.modules.user.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import top.xujm.core.base.BaseConstants;
+import top.xujm.modules.user.common.UserConstants;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -12,7 +14,7 @@ import java.util.Objects;
  */
 @ApiModel("用户标签实体")
 @Entity
-@Table(name = "weking_user_label", schema = "weking")
+@Table(name = UserConstants.MODULE_PREFIX + "_label", schema = BaseConstants.DATABASE_SCHEMA)
 public class UserLabel {
     @ApiModelProperty("标签ID")
     private int labelId;

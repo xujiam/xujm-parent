@@ -21,11 +21,6 @@
             <groupId>top.xujm</groupId>
             <artifactId>xujm-file-facade</artifactId>
             <version>1.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>top.xujm</groupId>
-            <artifactId>xujm-file-facade</artifactId>
-            <version>1.0.0</version>
             <scope>compile</scope>
         </dependency>
         <dependency>

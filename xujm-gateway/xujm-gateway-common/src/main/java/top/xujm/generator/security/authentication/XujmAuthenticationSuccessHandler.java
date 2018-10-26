@@ -36,12 +36,12 @@ public class XujmAuthenticationSuccessHandler extends SavedRequestAwareAuthentic
     @Autowired
 	private DefaultTokenServices defaultTokenServices;
     @Autowired
-	private XujmBasicClientHandle wekingBasicClientHandle;
+	private XujmBasicClientHandle xujmBasicClientHandle;
 
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
 			Authentication authentication) throws IOException{
-		ClientDetails clientDetails = wekingBasicClientHandle.loadClientDetails(request);
+		ClientDetails clientDetails = xujmBasicClientHandle.loadClientDetails(request);
 		 // 构造OAuth2Request 第三步，new TokenRequest
 		 // 第一个参数是个map，放的是每个授权模式特有的参数，spring-security会根据这些参数构建Authentication
 		 // 我们这里已获取到了Authentication，弄个空的map就可

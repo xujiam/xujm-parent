@@ -2,6 +2,7 @@ package top.xujm.modules.cms.model;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import top.xujm.core.base.BaseConstants;
 
 import javax.persistence.*;
 
@@ -10,7 +11,7 @@ import javax.persistence.*;
  */
 @ApiModel("内容实体")
 @Entity
-@Table(name = "weking_cms_article", schema = "weking")
+@Table(name = "xujm_cms_article", schema = BaseConstants.DATABASE_SCHEMA)
 public class CmsArticle extends CmsBase{
     @ApiModelProperty(hidden = true)
     private int id;

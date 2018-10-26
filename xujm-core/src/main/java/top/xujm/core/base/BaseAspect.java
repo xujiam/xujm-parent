@@ -13,7 +13,7 @@ public class BaseAspect {
 
     /**
      * 获得当前触发类的路径
-     * com.weking.login.controller.LoginController
+     * com.xujm.login.controller.LoginController
      */
     protected String getTargetName(JoinPoint joinPoint){
         return joinPoint.getTarget().getClass().getName();

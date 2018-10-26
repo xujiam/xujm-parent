@@ -2,12 +2,8 @@ package top.xujm.generator.security;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
@@ -41,7 +37,7 @@ public class XujmResourceServerConfig extends ResourceServerConfigurerAdapter {
     private MobileAuthenticationSecurityConfig mobileAuthenticationSecurityConfig;
 
     @Autowired(required = false)
-    private SpringSocialConfigurer wekingSpringSocialConfigurer;
+    private SpringSocialConfigurer xujmSpringSocialConfigurer;
 
     private final XujmAuthenticationEntryPoint xujmAuthenticationEntryPoint;
 
@@ -81,8 +77,8 @@ public class XujmResourceServerConfig extends ResourceServerConfigurerAdapter {
             }
         }
         //如果不支持第三登录
-        if(wekingSpringSocialConfigurer != null){
-            http.apply(wekingSpringSocialConfigurer);
+        if(xujmSpringSocialConfigurer != null){
+            http.apply(xujmSpringSocialConfigurer);
         }
         http.exceptionHandling().authenticationEntryPoint(xujmAuthenticationEntryPoint).and()
                 .formLogin()

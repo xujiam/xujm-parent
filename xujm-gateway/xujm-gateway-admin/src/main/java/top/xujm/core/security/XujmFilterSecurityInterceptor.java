@@ -21,8 +21,8 @@ public class XujmFilterSecurityInterceptor extends AbstractSecurityInterceptor i
     private FilterInvocationSecurityMetadataSource securityMetadataSource;
 
     @Autowired
-    public void setMyAccessDecisionManager(XujmAccessDecisionManager wekingAccessDecisionManager) {
-        super.setAccessDecisionManager(wekingAccessDecisionManager);
+    public void setMyAccessDecisionManager(XujmAccessDecisionManager xujmAccessDecisionManager) {
+        super.setAccessDecisionManager(xujmAccessDecisionManager);
     }
 
     @Override

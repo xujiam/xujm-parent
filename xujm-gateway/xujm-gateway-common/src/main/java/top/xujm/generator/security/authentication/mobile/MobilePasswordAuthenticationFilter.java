@@ -15,10 +15,10 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class MobilePasswordAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
 
-    private static final String WEKING_FORM_MOBILE_KEY = "username";
-    private static final String WEKING_FORM_PASSWORD_KEY = "password";
-    private String mobileParameter = WEKING_FORM_MOBILE_KEY;
-    private String passwordParameter = WEKING_FORM_PASSWORD_KEY;
+    private static final String xujm_FORM_MOBILE_KEY = "username";
+    private static final String xujm_FORM_PASSWORD_KEY = "password";
+    private String mobileParameter = xujm_FORM_MOBILE_KEY;
+    private String passwordParameter = xujm_FORM_PASSWORD_KEY;
     private boolean postOnly = true;
 
     public MobilePasswordAuthenticationFilter() {

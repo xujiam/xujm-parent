@@ -1,0 +1,190 @@
+<title>类别列表</title>
+
+<div class="layui-card layadmin-header">
+  <div class="layui-breadcrumb" lay-filter="breadcrumb">
+    <a lay-href="">主页</a>
+    <a><cite>内容管理</cite></a>
+    <a><cite>类别列表</cite></a>
+  </div>
+</div>
+
+<div class="layui-fluid">
+  <div class="layui-card">
+    <div class="layui-card-body">
+      <div class="layui-btn-group">
+        <button class="layui-btn" id="btn-expand">全部展开</button>
+        <button class="layui-btn" id="btn-fold">全部折叠</button>
+        <button class="layui-btn" id="btn-refresh">刷新表格</button>
+        <button class="layui-btn layuiadmin-btn-useradmin" data-type="add">添加</button>
+      </div>
+      <table id="table1" class="layui-table" lay-filter="table1"></table>
+    </div>
+  </div>
+</div>
+<!-- 操作列 -->
+<script type="text/html" id="oper-col">
+  <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">修改</a>
+  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+
+<script>
+    function createOption($,form,menuPid,menuId){
+        $.ajax({
+            url:"cms/category/plist",
+            data:{"parentId":0},
+            headers : {'Authorization':layui.data('layuiAdmin').access_token},
+            dataType:"json",   //返回的数据是json 格式
+            success: function(d) {
+                var info = "";
+                $.each(d.data, function(index,values){   // 解析出data对应的Object数组
+                    if (menuPid != null && menuPid == values.parentId) {
+                        info += "<option value='"+values.categoryId+"' selected>"+values.name+"</option>";
+                    } else {
+                        info += "<option value='"+values.categoryId+"'>"+values.name+"</option>";
+                    }
+                });
+                $('select[name=menuPid2]').append(info);
+                form.render();
+            },
+            error : function() {
+                alert("请重新获取");
+            }
+        })
+    }
+    layui.config({
+        base: 'src/module/'
+    }).extend({
+        treetable: 'treetable-lay/treetable'
+    }).use(['layer', 'table', 'treetable','admin','form'], function () {
+        var admin = layui.admin;
+        var view = layui.view;
+        var form = layui.form;
+        var $ = layui.jquery;
+        var table = layui.table;
+        var layer = layui.layer;
+        var treetable = layui.treetable;
+
+        // 渲染表格
+        var renderTable = function () {
+            var accessToken = layui.data('layuiAdmin').access_token.replace("bearer ","");
+            layer.load(2);
+            treetable.render({
+                treeColIndex: 1,
+                treeSpid: 0,
+                treeIdName: 'categoryId',
+                treePidName: 'parentId',
+                treeDefaultClose: true,
+                treeLinkage: false,
+                elem: '#table1',
+                url: 'cms/category/list',
+                /*url: 'src/json/data.json',*/
+                where:{"access_token":accessToken},
+                page: false,
+                cols: [[
+                    {type: 'numbers'},
+                    {field: 'name', title: '类别名称'},
+                    {field: 'icon', title: '类别图标'},
+                    {field: 'sorts', title: '排序'},
+                    {templet: '#oper-col', title: '操作'}
+                ]],
+                done: function () {
+                    layer.closeAll('loading');
+                }
+            });
+        };
+
+        renderTable();
+
+        $('#btn-expand').click(function () {
+            treetable.expandAll('#table1');
+        });
+
+        $('#btn-fold').click(function () {
+            treetable.foldAll('#table1');
+        });
+
+        $('#btn-refresh').click(function () {
+            renderTable();
+        });
+
+        //监听工具条
+        table.on('tool(table1)', function (obj) {
+            var data = obj.data;
+            var layEvent = obj.event;
+            if (layEvent === 'del') {
+                layer.confirm('确定删除此类别？', function (index) {
+                    var apiData = {};
+                    apiData.categoryId = data.categoryId;
+                    apiData.parentId = data.parentId;
+                    formSubmit("cms/category/del", apiData, function () {
+                        renderTable();
+                    });
+                });
+
+            } else if (layEvent === 'edit') {
+                admin.popup({
+                    title: '修改类别'
+                    ,area: ['520px', '520px']
+                    ,id: 'LAY-popup-menu-editMenu'
+                    ,success: function(layero, index){
+                        view(this.id).render('cms/category/form',data).done(function(){
+                            form.render(null, 'layuiadmin-menu-form-list');
+                            if (data.parentId != 0) {
+                                $("#menuPid").css("display","inline-block");
+                            }
+                            createOption($,form,data.parentId,data.categoryId);
+                            //监听提交
+                            form.on('submit(LAY-menu-form-submit)', function(data){
+                                var field = data.field; //获取提交的字段
+                                if (field.menuPid1 == 0) {
+                                    field.parentId = field.menuPid1;
+                                } else {
+                                    field.parentId = field.menuPid2;
+                                }
+                                formSubmit("cms/category/add",field,function () {
+                                    renderTable();
+                                    layer.close(index); //执行关闭
+                                })
+                            });
+                        });
+                    }
+                })
+            }
+        });
+
+        // 事件
+        var active = {
+            add: function () {
+                admin.popup({
+                    title: '添加类别'
+                    ,area: ['520px', '520px']
+                    ,id: 'LAY-popup-menu-addMenu'
+                    ,success: function(layero, index){
+                        view(this.id).render('cms/category/form').done(function(){
+                            form.render(null, 'layuiadmin-menu-form-list');
+                            createOption($,form,null,null);
+                            //监听提交
+                            form.on('submit(LAY-menu-form-submit)', function(data){
+                                var field = data.field; //获取提交的字段
+                                if (field.menuPid1 == 0) {
+                                    field.parentId = field.menuPid1;
+                                } else {
+                                    field.parentId = field.menuPid2;
+                                }
+                                formSubmit("cms/category/add",field,function () {
+                                    renderTable();
+                                    layer.close(index); //执行关闭
+                                })
+                            });
+                        });
+                    }
+                })
+            }
+        }
+
+        $('.layui-btn.layuiadmin-btn-useradmin').on('click', function(){
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+    });
+</script>

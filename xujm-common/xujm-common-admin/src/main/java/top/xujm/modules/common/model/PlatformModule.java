@@ -1,5 +1,7 @@
 package top.xujm.modules.common.model;
 
+import top.xujm.core.base.BaseConstants;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -7,7 +9,7 @@ import java.util.Objects;
  * @author ZhengYP
  */
 @Entity
-@Table(name = "weking_platform_module", schema = "weking")
+@Table(name = "xujm_platform_module", schema = BaseConstants.DATABASE_SCHEMA)
 public class PlatformModule {
     private int id;
     private String moduleName;

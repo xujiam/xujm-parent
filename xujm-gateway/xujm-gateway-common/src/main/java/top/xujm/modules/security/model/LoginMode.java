@@ -1,5 +1,8 @@
 package top.xujm.modules.security.model;
 
+import top.xujm.core.base.BaseConstants;
+import top.xujm.modules.security.common.SecurityConstants;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -7,7 +10,7 @@ import java.util.Objects;
  * @author Xujm
  */
 @Entity
-@Table(name = "weking_user_login_mode", schema = "weking")
+@Table(name = SecurityConstants.MODULE_PREFIX + "_login_mode", schema = BaseConstants.DATABASE_SCHEMA)
 public class LoginMode {
     private int id;
     private String providerName;

@@ -3,6 +3,7 @@ package top.xujm.modules.user.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import top.xujm.core.base.BaseConstants;
 import top.xujm.modules.user.common.UserConstants;
 
 import javax.persistence.*;
@@ -14,7 +15,7 @@ import java.util.Objects;
  */
 @ApiModel(value = "用户关注")
 @Entity
-@Table(name = UserConstants.MODULE_PREFIX+"_follow", schema = "weking")
+@Table(name = UserConstants.MODULE_PREFIX+"_follow", schema = BaseConstants.DATABASE_SCHEMA)
 public class UserFollow extends UserBaseInfo implements Serializable {
     @JsonIgnore
     private int id;

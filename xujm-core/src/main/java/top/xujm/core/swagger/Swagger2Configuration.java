@@ -52,7 +52,7 @@ public class Swagger2Configuration {
                 .title("问津项目接口文档")
                 .description("spring-boot swagger2")
                 .termsOfServiceUrl("")
-                .contact(new Contact("weking", "/api.htm", "weking@163.com"))
+                .contact(new Contact("xujm", "/api.htm", "xujm@163.com"))
                 .build();
     }
 

@@ -3,6 +3,8 @@ package top.xujm.modules.user.model;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiParam;
+import top.xujm.core.base.BaseConstants;
+import top.xujm.modules.user.common.UserConstants;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -13,7 +15,7 @@ import java.util.Objects;
  */
 @ApiModel("用户举报实体")
 @Entity
-@Table(name = "weking_user_report", schema = "weking")
+@Table(name = UserConstants.MODULE_PREFIX + "_report", schema = BaseConstants.DATABASE_SCHEMA)
 public class UserReport extends UserBaseInfo{
     @ApiParam(hidden = true)
     private int id;

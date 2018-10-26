@@ -1,5 +1,6 @@
 package top.xujm.modules.oss.model;
 
+import top.xujm.core.base.BaseConstants;
 import top.xujm.modules.oss.common.OssConstants;
 
 import javax.persistence.*;
@@ -9,7 +10,7 @@ import java.util.Objects;
  * @author Xujm
  */
 @Entity
-@Table(name = OssConstants.MODULE_PREFIX, schema = "weking")
+@Table(name = OssConstants.MODULE_PREFIX, schema = BaseConstants.DATABASE_SCHEMA)
 public class Oss {
     private int id;
     private String typeCode;

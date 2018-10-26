@@ -23,7 +23,7 @@ public class OssProcessor {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Autowired
+    @Autowired(required = false)
     private Map<String,OssGenerator> ossGeneratorMap;
 
     public void uploadFile(InputStream fileStream,String filePath){
@@ -31,12 +31,19 @@ public class OssProcessor {
         if(!ossConfig.isEnable()){
             throw new RemindException(BaseResultEnum.FUNCTION_CLOSE);
         }
-        OssGenerator ossGenerator = ossGeneratorMap.get(getOssBean(ossConfig.getDealBean()));
+        OssGenerator ossGenerator = getOssGenerator(ossConfig);
         if(ossGenerator == null){
             logger.error("OssProcessor:uploadFile:{}",ossConfig.getDealBean());
             throw new OssRemindException(OssResultEnum.GENERATOR_ERROR);
         }
         ossGenerator.uploadFile(fileStream,filePath,ossConfig);
+    }
+
+    private OssGenerator getOssGenerator(OssConfig ossConfig){
+        if(ossGeneratorMap == null){
+            throw new OssRemindException(OssResultEnum.GENERATOR_ERROR);
+        }
+        return ossGeneratorMap.get(getOssBean(ossConfig.getDealBean()));
     }
 
 

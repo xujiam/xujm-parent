@@ -22,5 +22,10 @@
             <artifactId>xujm-gateway-common</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>top.xujm</groupId>
+            <artifactId>xujm-msg-facade</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
 </project>

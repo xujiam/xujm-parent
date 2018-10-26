@@ -64,8 +64,8 @@ public class XujmAuthenticationServerConfig  extends AuthorizationServerConfigur
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         InMemoryClientDetailsServiceBuilder builder = clients.inMemory();
-        builder.withClient("weking")
-                .secret(passwordEncoder.encode("weking"))
+        builder.withClient("xujm")
+                .secret(passwordEncoder.encode("xujm"))
                 .authorizedGrantTypes("password","refresh_token")
                 .scopes("all","read","write")
                 //token有效期

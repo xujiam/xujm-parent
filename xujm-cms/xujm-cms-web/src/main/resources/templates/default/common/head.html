@@ -1,0 +1,26 @@
+<head xmlns:th="http://www.thymeleaf.org" th:fragment="head">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${siteName}"></title>
+    <link th:href="@{${'/'+template+'/css/bootstrap.min.css'}}" type="text/css" rel="stylesheet">
+    <link th:href="@{${'/'+template+'/css/style.css'}}" type="text/css" rel="stylesheet">
+    <link type="text/css" th:href="@{${'/'+template+'/css/nprogress.css'}}" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script th:src="@{${'/'+template+'/js/html5shiv.min.js'}}" type="text/javascript"></script>
+    <script th:src="@{${'/'+template+'/js/respond.min.js'}}" type="text/javascript"></script>
+    <script th:src="@{${'/'+template+'/js/selectivizr-min.js'}}" type="text/javascript"></script>
+    <![endif]-->
+    <link rel="apple-touch-icon-precomposed" th:href="@{${'/'+template+'/images/icon/icon.png'}}">
+    <link rel="shortcut icon" th:href="@{${'/'+template+'/images/icon/favicon.ico'}}">
+    <meta name="Keywords" content="" />
+    <meta name="description" content="" />
+    <script type="text/javascript">
+        //判断浏览器是否支持HTML5
+        window.onload = function() {
+            if (!window.applicationCache) {
+                window.location.href="ie.html";
+            }
+        }
+    </script>
+</head>

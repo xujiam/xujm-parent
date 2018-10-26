@@ -17,5 +17,15 @@
             <artifactId>xujm-cms-common</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>top.xujm</groupId>
+            <artifactId>xujm-user-web</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>top.xujm</groupId>
+            <artifactId>xujm-oss-web</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
 </project>

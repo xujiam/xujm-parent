@@ -1,5 +1,6 @@
 package top.xujm.modules.user.model;
 
+import top.xujm.core.base.BaseConstants;
 import top.xujm.modules.user.common.UserConstants;
 
 import javax.persistence.*;
@@ -8,7 +9,7 @@ import javax.persistence.*;
  * @author Xujm
  */
 @Entity
-@Table(name = UserConstants.MODULE_PREFIX + "_consume_type", schema = "weking")
+@Table(name = UserConstants.MODULE_PREFIX + "_consume_type", schema = BaseConstants.DATABASE_SCHEMA)
 public class UserConsumeType {
     private int id;
     private String consumeCode;

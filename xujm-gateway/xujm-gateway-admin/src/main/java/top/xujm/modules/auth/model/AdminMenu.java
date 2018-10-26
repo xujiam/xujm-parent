@@ -1,5 +1,7 @@
 package top.xujm.modules.auth.model;
 
+import top.xujm.core.base.BaseConstants;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
@@ -8,7 +10,7 @@ import java.util.Objects;
  * @author Xujm
  */
 @Entity
-@Table(name = "weking_admin_menu", schema = "weking")
+@Table(name = "xujm_admin_menu", schema = BaseConstants.DATABASE_SCHEMA)
 public class AdminMenu {
     private int menuId;
     private int menuPid;

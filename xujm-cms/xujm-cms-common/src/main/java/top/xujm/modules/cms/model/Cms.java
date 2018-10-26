@@ -1,12 +1,14 @@
 package top.xujm.modules.cms.model;
 
+import top.xujm.core.base.BaseConstants;
+
 import javax.persistence.*;
 
 /**
  * @author Xujm
  */
 @Entity
-@Table(name = "weking_cms", schema = "weking")
+@Table(name = "xujm_cms", schema = BaseConstants.DATABASE_SCHEMA)
 public class Cms extends CmsBase{
 
     @Override

@@ -1,5 +1,7 @@
 package top.xujm.modules.config.model;
 
+import top.xujm.core.base.BaseConstants;
+
 import javax.persistence.*;
 import java.util.concurrent.ScheduledFuture;
 
@@ -7,7 +9,7 @@ import java.util.concurrent.ScheduledFuture;
  * @author Xujm
  */
 @Entity
-@Table(name = "weking_platform_scheduled", schema = "weking")
+@Table(name = "xujm_platform_scheduled", schema = BaseConstants.DATABASE_SCHEMA)
 public class PlatformScheduled {
     private int id;
     private String scheduledCron;

@@ -18,20 +18,18 @@
         <module name="xujm-gateway-admin" />
         <module name="xujm-gateway-common" />
         <module name="xujm-gateway-web" />
+        <module name="xujm-msg-facade" />
         <module name="xujm-oss-admin" />
         <module name="xujm-oss-common" />
         <module name="xujm-oss-web" />
+        <module name="xujm-record-admin" />
+        <module name="xujm-record-common" />
+        <module name="xujm-record-web" />
         <module name="xujm-sms-common" />
         <module name="xujm-user-admin" />
         <module name="xujm-user-common" />
         <module name="xujm-user-web" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="xujm-blog" target="1.8" />
-      <module name="xujm-blog-admin" target="1.8" />
-      <module name="xujm-blog-common" target="1.8" />
-      <module name="xujm-blog-web" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

@@ -24,9 +24,13 @@
         </dependency>
         <dependency>
             <groupId>top.xujm</groupId>
-            <artifactId>xujm-oss-common</artifactId>
+            <artifactId>xujm-oss-admin</artifactId>
             <version>1.0.0</version>
-            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>top.xujm</groupId>
+            <artifactId>xujm-record-admin</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 </project>

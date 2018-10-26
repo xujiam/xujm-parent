@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="FacetManager">
+    <facet type="jpa" name="JPA">
+      <configuration>
+        <setting name="validation-enabled" value="true" />
+        <setting name="provider-name" value="" />
+        <datasource-mapping>
+          <factory-entry name="entityManagerFactory" value="0883ee16-4fff-4324-b705-28641dc08721" />
+          <factory-entry name="mysqlEntityManagerFactory" value="0883ee16-4fff-4324-b705-28641dc08721" />
+          <factory-entry name="noname-a.xml@0" value="0883ee16-4fff-4324-b705-28641dc08721" />
+        </datasource-mapping>
+      </configuration>
+    </facet>
+  </component>
+</module>

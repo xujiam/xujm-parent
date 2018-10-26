@@ -2,6 +2,7 @@ package top.xujm.modules.oss.model;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import top.xujm.core.base.BaseConstants;
 import top.xujm.modules.oss.common.OssConstants;
 
 import javax.persistence.*;
@@ -11,7 +12,7 @@ import javax.persistence.*;
  */
 @ApiModel(value = "储存对象")
 @Entity
-@Table(name = OssConstants.MODULE_PREFIX+"_log", schema = "weking")
+@Table(name = OssConstants.MODULE_PREFIX+"_log", schema = BaseConstants.DATABASE_SCHEMA)
 public class OssLog {
     @ApiModelProperty(value = "文件ID",name = "fileId")
     private int fileId;

@@ -1,12 +1,15 @@
 package top.xujm.modules.security.model;
 
+import top.xujm.core.base.BaseConstants;
+import top.xujm.modules.security.common.SecurityConstants;
+
 import javax.persistence.*;
 
 /**
  * @author Xujm
  */
 @Entity
-@Table(name = "weking_user_account", schema = "weking")
+@Table(name = SecurityConstants.MODULE_PREFIX + "_account", schema = BaseConstants.DATABASE_SCHEMA)
 public class UserAccount {
     private int userId;
     private String username;

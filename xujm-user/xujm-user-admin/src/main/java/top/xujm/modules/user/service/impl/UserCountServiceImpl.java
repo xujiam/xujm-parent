@@ -46,7 +46,7 @@ public class UserCountServiceImpl implements UserCountService {
             sql += "IFNULL(SUM(CASE WHEN register_code='"+info.getProviderId()+"' THEN 1 END),0) as " + info.getProviderId() + ",";
             loginModeMap.put(info.getProviderId(), info.getProviderName());
         }
-        sql += "COUNT(1) FROM weking_user_account u WHERE 1=1";
+        sql += "COUNT(1) FROM xujm_user_account u WHERE 1=1";
         if (StringUtils.isNotEmpty(addTime)) {
             String[] times = StringUtil.subDate(addTime);
             sql += " and u.add_time >= " + times[0];
@@ -87,7 +87,7 @@ public class UserCountServiceImpl implements UserCountService {
         for (LoginMode info : loginModeList) {
             sql += "IFNULL(SUM(CASE WHEN register_code='"+info.getProviderId()+"' THEN 1 END),0) as " + info.getProviderId() + ",";
         }
-        sql += "COUNT(1) FROM weking_user_account u WHERE 1=1";
+        sql += "COUNT(1) FROM xujm_user_account u WHERE 1=1";
         if (StringUtils.isNotEmpty(addTime)) {
             String[] times = new String[2];
             if ("day".equals(register)){
@@ -113,7 +113,7 @@ public class UserCountServiceImpl implements UserCountService {
         // String lastWeek = StringUtil.timeToString(DateUtils.getLastWeek()) + "000000";
         String lastWeek = "20180504000000";
         String lastWeek2 = "20180511000000";
-        String sql = "SELECT DATE_FORMAT(add_time,'%m-%d') as 'date',COUNT(*) as 'num' FROM weking_user_info WHERE add_time >= " + lastWeek;
+        String sql = "SELECT DATE_FORMAT(add_time,'%m-%d') as 'date',COUNT(*) as 'num' FROM xujm_user_info WHERE add_time >= " + lastWeek;
         sql += " and add_time <= " + lastWeek2;
         sql += " GROUP BY date ";
         Query query = em.createNativeQuery(sql);

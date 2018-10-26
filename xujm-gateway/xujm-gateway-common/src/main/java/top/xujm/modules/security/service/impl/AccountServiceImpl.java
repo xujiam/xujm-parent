@@ -281,7 +281,7 @@ public class AccountServiceImpl extends SecurityService implements AccountServic
     }
 
     private Map<String,Object> getUserAccountInfo(int userId){
-        String sql = String.format("select * from weking_user_account where user_id = %d", userId);
+        String sql = String.format("select * from xujm_user_account where user_id = %d", userId);
         return jdbcTemplate.queryForMap(sql);
     }
 
