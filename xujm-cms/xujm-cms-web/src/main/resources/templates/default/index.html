@@ -95,10 +95,10 @@
           <span th:if="${articleList.first}" >首页</span>
           <a th:if="${!articleList.first}" href="/">首页</a>
           <span th:if="${!articleList.hasPrevious}" >上一页</span>
-          <a th:if="${articleList.hasPrevious}" th:href="@{${'?page='+articleList.prevNumber+'&keyword='+param.keyword}}">上一页</a>
+          <a th:if="${articleList.hasPrevious}" th:href="@{${'?page='+articleList.prevNumber}}">上一页</a>
           <span class="current" th:text="${articleList.number}">1</span>
           <span th:if="${!articleList.hasNext}" >上一页</span>
-          <a th:if="${articleList.hasNext}" th:href="@{${'?page='+articleList.nextNumber+'&keyword='+param.keyword}}" >下一页</a>
+          <a th:if="${articleList.hasNext}" th:href="@{${'?page='+articleList.nextNumber}}" >下一页</a>
         </div>
       </div>
     </div>
